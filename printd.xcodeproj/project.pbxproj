@@ -1,0 +1,364 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
+		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
+		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
+		D9CCA334152F298100A56228 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA333152F298100A56228 /* Cocoa.framework */; };
+		D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA33C152F298100A56228 /* InfoPlist.strings */; };
+		D9CCA340152F298100A56228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA33F152F298100A56228 /* main.m */; };
+		D9CCA344152F298100A56228 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA342152F298100A56228 /* Credits.rtf */; };
+		D9CCA347152F298100A56228 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA346152F298100A56228 /* AppDelegate.m */; };
+		D9CCA34A152F298100A56228 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA348152F298100A56228 /* MainMenu.xib */; };
+		D9CCA36D152F2C2300A56228 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA36C152F2C2300A56228 /* QuartzCore.framework */; };
+		D9CCA36F152F2C2F00A56228 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA36E152F2C2F00A56228 /* Quartz.framework */; };
+		D9CCA39E152F2F4300A56228 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA397152F2F4300A56228 /* ASIDataCompressor.m */; };
+		D9CCA39F152F2F4300A56228 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA399152F2F4300A56228 /* ASIDataDecompressor.m */; };
+		D9CCA3A0152F2F4300A56228 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA39B152F2F4300A56228 /* ASIDownloadCache.m */; };
+		D9CCA3A1152F2F4300A56228 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA39D152F2F4300A56228 /* ASIFormDataRequest.m */; };
+		D9CCA3A6152F2F6500A56228 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA3A3152F2F6500A56228 /* ASIHTTPRequest.m */; };
+		D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA3A8152F2F8C00A56228 /* ASIInputStream.m */; };
+		D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA3AA152F2F8C00A56228 /* ASINetworkQueue.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D9A5BAA7152F333500400882 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		D9CCA32F152F298100A56228 /* printd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9CCA333152F298100A56228 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D9CCA336152F298100A56228 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D9CCA337152F298100A56228 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D9CCA338152F298100A56228 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9CCA33B152F298100A56228 /* printd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "printd-Info.plist"; sourceTree = "<group>"; };
+		D9CCA33D152F298100A56228 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D9CCA33F152F298100A56228 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D9CCA341152F298100A56228 /* printd-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "printd-Prefix.pch"; sourceTree = "<group>"; };
+		D9CCA343152F298100A56228 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D9CCA345152F298100A56228 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D9CCA346152F298100A56228 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D9CCA349152F298100A56228 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D9CCA36C152F2C2300A56228 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D9CCA36E152F2C2F00A56228 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		D9CCA395152F2F4300A56228 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		D9CCA396152F2F4300A56228 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		D9CCA397152F2F4300A56228 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		D9CCA398152F2F4300A56228 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		D9CCA399152F2F4300A56228 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		D9CCA39A152F2F4300A56228 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		D9CCA39B152F2F4300A56228 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		D9CCA39C152F2F4300A56228 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		D9CCA39D152F2F4300A56228 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		D9CCA3A2152F2F6500A56228 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		D9CCA3A3152F2F6500A56228 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		D9CCA3A4152F2F6500A56228 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		D9CCA3A5152F2F6500A56228 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		D9CCA3A7152F2F8C00A56228 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		D9CCA3A8152F2F8C00A56228 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		D9CCA3A9152F2F8C00A56228 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		D9CCA3AA152F2F8C00A56228 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		D9CCA3AB152F2F8C00A56228 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9CCA32C152F298100A56228 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */,
+				D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */,
+				D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */,
+				D9CCA36F152F2C2F00A56228 /* Quartz.framework in Frameworks */,
+				D9CCA36D152F2C2300A56228 /* QuartzCore.framework in Frameworks */,
+				D9CCA334152F298100A56228 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9CCA324152F298000A56228 = {
+			isa = PBXGroup;
+			children = (
+				D9A5BAA9152F337200400882 /* CoreServices.framework */,
+				D9A5BAA7152F333500400882 /* libz.dylib */,
+				D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */,
+				D9CCA36E152F2C2F00A56228 /* Quartz.framework */,
+				D9CCA36C152F2C2300A56228 /* QuartzCore.framework */,
+				D9CCA339152F298100A56228 /* printd */,
+				D9CCA332152F298100A56228 /* Frameworks */,
+				D9CCA330152F298100A56228 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9CCA330152F298100A56228 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCA32F152F298100A56228 /* printd.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9CCA332152F298100A56228 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCA333152F298100A56228 /* Cocoa.framework */,
+				D9CCA335152F298100A56228 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9CCA335152F298100A56228 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCA336152F298100A56228 /* AppKit.framework */,
+				D9CCA337152F298100A56228 /* CoreData.framework */,
+				D9CCA338152F298100A56228 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D9CCA339152F298100A56228 /* printd */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCA3A7152F2F8C00A56228 /* ASIInputStream.h */,
+				D9CCA3A8152F2F8C00A56228 /* ASIInputStream.m */,
+				D9CCA3A9152F2F8C00A56228 /* ASINetworkQueue.h */,
+				D9CCA3AA152F2F8C00A56228 /* ASINetworkQueue.m */,
+				D9CCA3AB152F2F8C00A56228 /* ASIProgressDelegate.h */,
+				D9CCA3A2152F2F6500A56228 /* ASIHTTPRequest.h */,
+				D9CCA3A3152F2F6500A56228 /* ASIHTTPRequest.m */,
+				D9CCA3A4152F2F6500A56228 /* ASIHTTPRequestConfig.h */,
+				D9CCA3A5152F2F6500A56228 /* ASIHTTPRequestDelegate.h */,
+				D9CCA395152F2F4300A56228 /* ASICacheDelegate.h */,
+				D9CCA396152F2F4300A56228 /* ASIDataCompressor.h */,
+				D9CCA397152F2F4300A56228 /* ASIDataCompressor.m */,
+				D9CCA398152F2F4300A56228 /* ASIDataDecompressor.h */,
+				D9CCA399152F2F4300A56228 /* ASIDataDecompressor.m */,
+				D9CCA39A152F2F4300A56228 /* ASIDownloadCache.h */,
+				D9CCA39B152F2F4300A56228 /* ASIDownloadCache.m */,
+				D9CCA39C152F2F4300A56228 /* ASIFormDataRequest.h */,
+				D9CCA39D152F2F4300A56228 /* ASIFormDataRequest.m */,
+				D9CCA345152F298100A56228 /* AppDelegate.h */,
+				D9CCA346152F298100A56228 /* AppDelegate.m */,
+				D9CCA348152F298100A56228 /* MainMenu.xib */,
+				D9CCA33A152F298100A56228 /* Supporting Files */,
+			);
+			path = printd;
+			sourceTree = "<group>";
+		};
+		D9CCA33A152F298100A56228 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9CCA33B152F298100A56228 /* printd-Info.plist */,
+				D9CCA33C152F298100A56228 /* InfoPlist.strings */,
+				D9CCA33F152F298100A56228 /* main.m */,
+				D9CCA341152F298100A56228 /* printd-Prefix.pch */,
+				D9CCA342152F298100A56228 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D9CCA32E152F298100A56228 /* printd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9CCA34D152F298100A56228 /* Build configuration list for PBXNativeTarget "printd" */;
+			buildPhases = (
+				D9CCA32B152F298100A56228 /* Sources */,
+				D9CCA32C152F298100A56228 /* Frameworks */,
+				D9CCA32D152F298100A56228 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = printd;
+			productName = printd;
+			productReference = D9CCA32F152F298100A56228 /* printd.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9CCA326152F298000A56228 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D9CCA329152F298000A56228 /* Build configuration list for PBXProject "printd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9CCA324152F298000A56228;
+			productRefGroup = D9CCA330152F298100A56228 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9CCA32E152F298100A56228 /* printd */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D9CCA32D152F298100A56228 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */,
+				D9CCA344152F298100A56228 /* Credits.rtf in Resources */,
+				D9CCA34A152F298100A56228 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9CCA32B152F298100A56228 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9CCA340152F298100A56228 /* main.m in Sources */,
+				D9CCA347152F298100A56228 /* AppDelegate.m in Sources */,
+				D9CCA39E152F2F4300A56228 /* ASIDataCompressor.m in Sources */,
+				D9CCA39F152F2F4300A56228 /* ASIDataDecompressor.m in Sources */,
+				D9CCA3A0152F2F4300A56228 /* ASIDownloadCache.m in Sources */,
+				D9CCA3A1152F2F4300A56228 /* ASIFormDataRequest.m in Sources */,
+				D9CCA3A6152F2F6500A56228 /* ASIHTTPRequest.m in Sources */,
+				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
+				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D9CCA33C152F298100A56228 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9CCA33D152F298100A56228 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D9CCA342152F298100A56228 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9CCA343152F298100A56228 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D9CCA348152F298100A56228 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9CCA349152F298100A56228 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D9CCA34B152F298100A56228 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D9CCA34C152F298100A56228 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D9CCA34E152F298100A56228 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "printd/printd-Prefix.pch";
+				INFOPLIST_FILE = "printd/printd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D9CCA34F152F298100A56228 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "printd/printd-Prefix.pch";
+				INFOPLIST_FILE = "printd/printd-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9CCA329152F298000A56228 /* Build configuration list for PBXProject "printd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9CCA34B152F298100A56228 /* Debug */,
+				D9CCA34C152F298100A56228 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9CCA34D152F298100A56228 /* Build configuration list for PBXNativeTarget "printd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9CCA34E152F298100A56228 /* Debug */,
+				D9CCA34F152F298100A56228 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9CCA326152F298000A56228 /* Project object */;
+}
