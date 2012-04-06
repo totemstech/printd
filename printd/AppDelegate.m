@@ -19,13 +19,29 @@
 #import <Quartz/Quartz.h>
 
 
-//#import "ASIFormDataRequest.h"
-//#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+
+
+- (id)initWithCoder:(NSCoder *)inCoder
+{
+    if ( self = [super init] )
+    {
+       dataMutableString = [[NSMutableString alloc] init];
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+    [dataMutableString release];
+    [super dealloc];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -34,21 +50,19 @@
 
 
 - (void) fetch {
-//NSMutableString *urlstring = [NSMutableString stringWithString:@"http://teleportd-ios.nodejitsu.com/geo"];
+    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://teleportd-ios.nodejitsu.com/geo"];
     
     
-  /*  NSURL * url = [NSURL URLWithString:urlstring];
+    NSURL * url = [NSURL URLWithString:urlstring];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    //[request addPostValue:lat forKey:@"lat"];
     
-    
-    [request setUserInfo:[NSDictionary dictionaryWithObject:@"loc" forKey:@"locationupdate"]];
+    [request setUserInfo:[NSDictionary dictionaryWithObject:@"TLAPIReq" forKey:@"TLAPIReq"]];
     [request setDelegate:self];
-    [request startAsynchronous];*/
+    [request startAsynchronous];
     
 }
 
-- (void)printPDF:(NSURL *)fileURL {
+- (void)printImage:(NSURL *)fileURL {
     
     // Create the print settings.
     NSPrintInfo *printInfo = [NSPrintInfo sharedPrintInfo];
@@ -82,19 +96,47 @@
     [op runOperation];
 }
 
+/*
+ * Method for dealing with the teleportd api stream 
+ * parsing it
+ */
+- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data {
+    
+    if ([[request.userInfo objectForKey:@"TLAPIReq"] isEqualToString:@"TLAPIReq"]) {
+        
+    [dataMutableString appendString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+	
+    while (dataMutableString && [dataMutableString rangeOfString:@"\r\n"].location != NSNotFound) {
+    	NSRange range = [dataMutableString rangeOfString:@"\r\n"];
+        NSString *jsonString = [dataMutableString substringWithRange:range];
+        //TODO send the json to the appropriate method to proceed 
+        //downloading images
+        [dataMutableString deleteCharactersInRange:range];
+    }
+    }
+
+}
+
+- (void) downloadImage {
+    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://teleportd-ios.nodejitsu.com/geo"];
+    
+    
+    NSURL * url = [NSURL URLWithString:urlstring];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    
+    [request setUserInfo:[NSDictionary dictionaryWithObject:@"TLAPIReq" forKey:@"TLAPIReq"]];
+    [request setDelegate:self];
+    [request startAsynchronous];
+
+}
+
+
+
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     
-    if ([[request.userInfo objectForKey:@"locationupdate"] isEqualToString:@"loc"]) {
-        // Use when fetching text data
-        //  NSString *responseString = [request responseString];
-        //NSArray  *body = [[request responseString] 	object	]; 
-        //[body enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        
-        
-        //  }];
-        
+    if ([[request.userInfo objectForKey:@"TLAPIReq"] isEqualToString:@"TLAPIReq"]) {
+  
     }
     
     
