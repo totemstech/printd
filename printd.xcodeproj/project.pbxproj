@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F151CA6152F3966005EF71B /* ScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F151CA4152F3966005EF71B /* ScreenController.m */; };
+		0F3E9B7515356E6100051A3C /* PrintController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7415356E6100051A3C /* PrintController.m */; };
+		0F3E9B8115356F3100051A3C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7C15356F3100051A3C /* Event.m */; };
+		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
+		0F3E9B8315356F3100051A3C /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8015356F3100051A3C /* Registration.m */; };
+		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
 		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
 		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
@@ -28,6 +34,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F151CA3152F3966005EF71B /* ScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenController.h; sourceTree = "<group>"; };
+		0F151CA4152F3966005EF71B /* ScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenController.m; sourceTree = "<group>"; };
+		0F3E9B7315356E6100051A3C /* PrintController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintController.h; sourceTree = "<group>"; };
+		0F3E9B7415356E6100051A3C /* PrintController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintController.m; sourceTree = "<group>"; };
+		0F3E9B7B15356F3100051A3C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		0F3E9B7C15356F3100051A3C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		0F3E9B7D15356F3100051A3C /* EventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventBus.h; sourceTree = "<group>"; };
+		0F3E9B7E15356F3100051A3C /* EventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventBus.m; sourceTree = "<group>"; };
+		0F3E9B7F15356F3100051A3C /* Registration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Registration.h; sourceTree = "<group>"; };
+		0F3E9B8015356F3100051A3C /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
+		0F3E9B8415356FF200051A3C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D9A5BAA7152F333500400882 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -111,8 +129,32 @@
 		0F151C9E152F3812005EF71B /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				0F151CA3152F3966005EF71B /* ScreenController.h */,
+				0F151CA4152F3966005EF71B /* ScreenController.m */,
 			);
 			name = Screen;
+			sourceTree = "<group>";
+		};
+		0F3E9B7115356DFC00051A3C /* Print */ = {
+			isa = PBXGroup;
+			children = (
+				0F3E9B7315356E6100051A3C /* PrintController.h */,
+				0F3E9B7415356E6100051A3C /* PrintController.m */,
+			);
+			name = Print;
+			sourceTree = "<group>";
+		};
+		0F3E9B7A15356F1200051A3C /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				0F3E9B7B15356F3100051A3C /* Event.h */,
+				0F3E9B7C15356F3100051A3C /* Event.m */,
+				0F3E9B7D15356F3100051A3C /* EventBus.h */,
+				0F3E9B7E15356F3100051A3C /* EventBus.m */,
+				0F3E9B7F15356F3100051A3C /* Registration.h */,
+				0F3E9B8015356F3100051A3C /* Registration.m */,
+			);
+			name = Event;
 			sourceTree = "<group>";
 		};
 		D9CCA324152F298000A56228 = {
@@ -159,8 +201,12 @@
 		D9CCA339152F298100A56228 /* printd */ = {
 			isa = PBXGroup;
 			children = (
+				0F3E9B7A15356F1200051A3C /* Event */,
 				0F151C9C152F37F2005EF71B /* ASHTTPRequest */,
 				0F151C9E152F3812005EF71B /* Screen */,
+				0F3E9B7115356DFC00051A3C /* Print */,
+				0F3E9B8415356FF200051A3C /* Factory.h */,
+				0F3E9B8515356FF200051A3C /* Factory.m */,
 				D9CCA345152F298100A56228 /* AppDelegate.h */,
 				D9CCA346152F298100A56228 /* AppDelegate.m */,
 				D9CCA348152F298100A56228 /* MainMenu.xib */,
@@ -253,6 +299,12 @@
 				D9CCA3A6152F2F6500A56228 /* ASIHTTPRequest.m in Sources */,
 				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
+				0F151CA6152F3966005EF71B /* ScreenController.m in Sources */,
+				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
+				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
+				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
+				0F3E9B8315356F3100051A3C /* Registration.m in Sources */,
+				0F3E9B8615356FF200051A3C /* Factory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
