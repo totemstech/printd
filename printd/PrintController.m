@@ -10,7 +10,7 @@
 
 @implementation PrintController
 
-
+/*
 - (void)printPDF:(NSURL *)fileURL {
     
     // Create the print settings.
@@ -44,7 +44,7 @@
     [op setShowsProgressPanel:NO];
     [op runOperation];
 }
-
+*/
 
 @end
 
