@@ -15,6 +15,9 @@
 #define PRINT_VIEW_WIDTH 1200
 #define PRINT_VIEW_HEIGHT 1800
 
+#define PRINT_IMAGE_WIDTH 1000
+#define PRINT_IMAGE_HEIGHT 1000
+
 // Storage keys:
 
 // Factory
