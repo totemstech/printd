@@ -20,13 +20,29 @@
 #import <Quartz/Quartz.h>
 
 
-//#import "ASIFormDataRequest.h"
-//#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+
+
+- (id)initWithCoder:(NSCoder *)inCoder
+{
+    if ( self = [super init] )
+    {
+       dataMutableString = [[NSMutableString alloc] init];
+    }
+    return self;
+}
+
+- (void) dealloc
+{
+    [dataMutableString release];
+    [super dealloc];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
