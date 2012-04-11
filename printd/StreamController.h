@@ -8,10 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Event.h"
+#import "EventBus.h"
 
+
+@interface StreamEvent : Event {
+  
+}
+@property (nonatomic, retain) NSDictionary* data;
++ (Event*)eventWithDic:(NSDictionary*) dic;
+
+
+@end
 
 @interface StreamController : NSObject
 {
-    NSMutableString *dataMutableString; 
+    NSMutableString *buffer; 
 }
+
+- (void) start;
+
 @end
+

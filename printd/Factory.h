@@ -7,8 +7,9 @@
 //
 
 #import "PrintController.h"
+#import "StreamController.h"
 #import "AppDelegate.h"
-
+#import "PageController.h"
 // Config
 
 #define PRINT_VIEW_WIDTH 1748
@@ -29,5 +30,7 @@
 
 @property (nonatomic, readonly, retain)  PrintController         *print;
 @property (nonatomic, readwrite, retain) AppDelegate             *printdAppDelegate;
+@property (nonatomic, readonly, retain)  StreamController        *streamController;
+@property (nonatomic, readonly, retain)  PageController          *pageController;
 
 @end
