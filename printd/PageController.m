@@ -10,6 +10,14 @@
 #import "StreamController.h"
 #import "ASIHTTPRequest.h"
 #import "EventBus.h"
+#import "Factory.h"
+
+
+@interface PageController ()
+
+- (void) buildPage:(NSImage *)img;
+
+@end
 
 @implementation PageController
 
@@ -41,9 +49,8 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-     NSData *responseData = [request responseData];
- //   NSImage* img = [NSImage ] 
-
+    NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
+    [self buildPage:pic];
 }
 
 
@@ -55,6 +62,30 @@
  [[[Factory sharedFactory] printController] printView: view];
 */
 
+- (void) buildPage:(NSImage *)pic
+{
+    /*
+    NSView *picView = [[NSView alloc] initWithFrame:NSMakeRect(100.0, 100.0, 1000, 1000)];
+    
+    NSImage *final = [[NSImage alloc] initWithSize:NSMakeSize(PRINT_IMAGE_WIDTH, PRINT_IMAGE_HEIGHT)];
+    
+    
+    
+    NSImage *final = pic;
+    if (pic.size.width * picView.frame.size.height > picView.frame.size.width * pic.size.height) {
+        final = [pic imageAtRect:CGRectMake((pic.size.width - pic.size.height * picView.frame.size.width / picView.frame.size.height) / 2,
+                                            0.0f,
+                                            pic.size.height * picView.frame.size.width / picView.frame.size.height, 
+                                            pic.size.height)];
+    }
+    else {
+        final = [pic imageAtRect:CGRectMake(0.0f,
+                                            (pic.size.height - pic.size.width * picView.frame.size.height / picView.frame.size.width) / 2,                                              
+                                            pic.size.width,
+                                            pic.size.width * picView.frame.size.height / picView.frame.size.width)];        
+    }
+*/
+}
 
 @end
 
