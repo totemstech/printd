@@ -16,6 +16,7 @@
 
 #import "AppDelegate.h"
 #import "ASIHTTPRequest.h"
+#import "Factory.h"
 #import <Quartz/Quartz.h>
 
 
@@ -35,6 +36,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    // [Factory sharedFactory] ...
 }
-
 @end
