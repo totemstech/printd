@@ -60,6 +60,8 @@
     PictureEvent *evt = [events_ objectForKey:request];    
     [events_ removeObjectForKey:request];
     
+    NSLog(@"%@", [evt url]);
+    
     NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
     [self buildPage:pic];
 }

@@ -34,7 +34,7 @@
 
 
 - (void) start {
-    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://api.core.teleportd.com/stream?accesskey=53d9a10e2a7db6b7957be8cbbec599d57541e853a94d98fae6e7e7aca06d424cb49b1b200e9b80b032a549dd03d653735a238982d0dead1f509521f07dea7b30&loc=[0,0,180,360]"];
+    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://api.core.teleportd.com/stream?accesskey=53d9a10e2a7db6b7957be8cbbec599d57541e853a94d98fae6e7e7aca06d424cb49b1b200e9b80b032a549dd03d653735a238982d0dead1f509521f07dea7b30&track=[\"lajeuneur\"]"];
     
     NSURL * url = [NSURL URLWithString:urlstring];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -62,12 +62,12 @@
            // NSRange range = [dataMutableString rangeOfString:@"\r\n"]
             
             if ([chunks count] == 1) {
-                //NSLog(@"%@", [[chunks objectAtIndex:0 ] objectFromJSONString]);
+                NSLog(@"%@", [[chunks objectAtIndex:0 ] objectFromJSONString]);
                 NSString *url = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"fll"];
                 NSString *handle = [[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"usr"] objectAtIndex:0];
                 NSString *comments;
                 
-                if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] != 0) {
+                if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] > 0) {
                     comments = [[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] objectAtIndex:0];
                 }
                 else {
@@ -78,12 +78,12 @@
                 [buffer setString:@""];
             } else {
                 for (int y = 0; y < [chunks count] - 1; y++) {
-                   // NSLog(@"%@", [[chunks objectAtIndex:y ] objectFromJSONString]);
+                    NSLog(@"%@", [[chunks objectAtIndex:y ] objectFromJSONString]);
                     NSString *url = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"fll"];
                     NSString *handle = [[[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"usr"] objectAtIndex:0];
                     NSString *comments;
                     
-                    if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] != 0) {
+                    if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] > 0) {
                         comments = [[[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"text"] objectAtIndex:0];
                     }
                     else {
