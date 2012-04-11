@@ -64,11 +64,11 @@
             if ([chunks count] == 1) {
                 //NSLog(@"%@", [[chunks objectAtIndex:0 ] objectFromJSONString]);
                 NSString *url = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"fll"];
-                NSString *handle = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"hdl"];
+                NSString *handle = [[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"usr"] objectAtIndex:0];
                 NSString *comments;
                 
-                if ([[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"]) {
-                    comments = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"];
+                if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] != 0) {
+                    comments = [[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] objectAtIndex:0];
                 }
                 else {
                     comments = @"";
@@ -80,11 +80,11 @@
                 for (int y = 0; y < [chunks count] - 1; y++) {
                    // NSLog(@"%@", [[chunks objectAtIndex:y ] objectFromJSONString]);
                     NSString *url = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"fll"];
-                    NSString *handle = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"hdl"];
+                    NSString *handle = [[[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"usr"] objectAtIndex:0];
                     NSString *comments;
                     
-                    if ([[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"]) {
-                        comments = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"text"];
+                    if ([[[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"] count] != 0) {
+                        comments = [[[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"text"] objectAtIndex:0];
                     }
                     else {
                         comments = @"";
