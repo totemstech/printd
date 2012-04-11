@@ -27,7 +27,7 @@
 + (NSString*)stringWithHexBytes:(NSData*)data;
 + (NSString*)SHA1forData:(NSData *)data;
 
-@property (nonatomic, readonly, retain)  PrintController         *print;
+@property (nonatomic, readonly, retain)  PrintController         *printController;
 @property (nonatomic, readwrite, retain) AppDelegate             *printdAppDelegate;
 
 @end

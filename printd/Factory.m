@@ -18,7 +18,7 @@ static Factory *sharedFactory_ = nil;
 
 @implementation Factory
 
-@synthesize print = print_;
+@synthesize printController = printController_;
 @synthesize printdAppDelegate = printdAppDelegate_;
 
 + (Factory *)sharedFactory 
@@ -58,7 +58,7 @@ static Factory *sharedFactory_ = nil;
 {
     if((self = [super init])) {
         printdAppDelegate_ = (AppDelegate*)[[NSApplication sharedApplication] delegate];
-        print_ = [[PrintController alloc] init];
+        printController_ = [[PrintController alloc] init];
     }
                                
     return self;
@@ -66,7 +66,7 @@ static Factory *sharedFactory_ = nil;
 
 - (void)dealloc
 {    
-    [print_ release];
+    [printController_ release];
     
     [super dealloc];
 }

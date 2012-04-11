@@ -12,12 +12,12 @@
 		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
 		0F3E9B8315356F3100051A3C /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8015356F3100051A3C /* Registration.m */; };
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
+		0F3E9B961535876300051A3C /* news.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9B951535876300051A3C /* news.jpeg */; };
 		D9182E8115357DED0023FAD0 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8015357DED0023FAD0 /* PageController.m */; };
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
 		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
 		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
 		D9B743D21535765700465819 /* StreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B743D11535765700465819 /* StreamController.m */; };
-		D9B743D51535766E00465819 /* ImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B743D41535766E00465819 /* ImageController.m */; };
 		D9CCA334152F298100A56228 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA333152F298100A56228 /* Cocoa.framework */; };
 		D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA33C152F298100A56228 /* InfoPlist.strings */; };
 		D9CCA340152F298100A56228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA33F152F298100A56228 /* main.m */; };
@@ -46,6 +46,7 @@
 		0F3E9B8015356F3100051A3C /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
 		0F3E9B8415356FF200051A3C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		0F3E9B951535876300051A3C /* news.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news.jpeg; sourceTree = "<group>"; };
 		D9182E7F15357DED0023FAD0 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		D9182E8015357DED0023FAD0 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -53,8 +54,6 @@
 		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		D9B743D01535765700465819 /* StreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamController.h; sourceTree = "<group>"; };
 		D9B743D11535765700465819 /* StreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamController.m; sourceTree = "<group>"; };
-		D9B743D31535766E00465819 /* ImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageController.h; sourceTree = "<group>"; };
-		D9B743D41535766E00465819 /* ImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageController.m; sourceTree = "<group>"; };
 		D9CCA32F152F298100A56228 /* printd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CCA333152F298100A56228 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D9CCA336152F298100A56228 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -156,6 +155,14 @@
 			name = Event;
 			sourceTree = "<group>";
 		};
+		0F3E9B8F1535872600051A3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F3E9B951535876300051A3C /* news.jpeg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		D9B743A915356F9D00465819 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,8 +234,7 @@
 				D9CCA346152F298100A56228 /* AppDelegate.m */,
 				D9CCA348152F298100A56228 /* MainMenu.xib */,
 				D9CCA33A152F298100A56228 /* Supporting Files */,
-				D9B743D31535766E00465819 /* ImageController.h */,
-				D9B743D41535766E00465819 /* ImageController.m */,
+				0F3E9B8F1535872600051A3C /* Resources */,
 			);
 			path = printd;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */,
 				D9CCA344152F298100A56228 /* Credits.rtf in Resources */,
 				D9CCA34A152F298100A56228 /* MainMenu.xib in Resources */,
+				0F3E9B961535876300051A3C /* news.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +325,6 @@
 				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
 				D9B743D21535765700465819 /* StreamController.m in Sources */,
-				D9B743D51535766E00465819 /* ImageController.m in Sources */,
 				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
 				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
 				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
