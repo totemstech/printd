@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EventBus.h"
+#import "StreamController.h"
+
 
 @interface PageController : NSObject
+
+- (void)onPicture:(PictureEvent*)evt;
+
 
 @end

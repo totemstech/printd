@@ -7,19 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "Event.h"
-#import "EventBus.h"
 
-
-@interface StreamEvent : Event {
-  
-}
-@property (nonatomic, retain) NSDictionary* data;
-+ (Event*)eventWithDic:(NSDictionary*) dic;
-
-
-@end
 
 @interface StreamController : NSObject
 {
@@ -28,5 +17,18 @@
 
 - (void) start;
 
+@end
+
+
+// Events
+
+@interface PictureEvent : Event {
+}
++(PictureEvent*)eventWithURL:(NSString*)url;
++(PictureEvent*)eventWithURL:(NSString *)url handle:(NSString*)handle comments:(NSString*)comments;
+
+@property (nonatomic, readwrite, retain) NSString* url;
+@property (nonatomic, readwrite, retain) NSString* handle;
+@property (nonatomic, readwrite, retain) NSString* comments;
 @end
 

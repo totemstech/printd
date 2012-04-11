@@ -11,7 +11,8 @@
 #import "ASIHTTPRequest.h"
 #import "JSONKit.h"
 #import "Factory.h"
-#include "iconv.h"
+#import "EventBus.h"
+
 @implementation StreamController
 
 - (id)init
@@ -58,16 +59,38 @@
             
             NSArray *chunks = [buffer componentsSeparatedByString:@"\r\n"];
             
-           // NSRange range = [dataMutableString rangeOfString:@"\r\n"];
+           // NSRange range = [dataMutableString rangeOfString:@"\r\n"]
             
             if ([chunks count] == 1) {
                 //NSLog(@"%@", [[chunks objectAtIndex:0 ] objectFromJSONString]);
-                [[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:[[chunks objectAtIndex:0 ] objectFromJSONString]]];
+                NSString *url = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"fll"];
+                NSString *handle = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"hdl"];
+                NSString *comments;
+                
+                if ([[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"]) {
+                    comments = [[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"];
+                }
+                else {
+                    comments = @"";
+                }
+                
+                [[EventBus defaultEventBus] fireEvent:[PictureEvent eventWithURL:url handle:handle comments:comments]];
                 [buffer setString:@""];
             } else {
                 for (int y = 0; y < [chunks count] - 1; y++) {
                    // NSLog(@"%@", [[chunks objectAtIndex:y ] objectFromJSONString]);
-                    [[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:[[chunks objectAtIndex:y ] objectFromJSONString]]];
+                    NSString *url = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"fll"];
+                    NSString *handle = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"hdl"];
+                    NSString *comments;
+                    
+                    if ([[[chunks objectAtIndex:0] objectFromJSONString] objectForKey:@"text"]) {
+                        comments = [[[chunks objectAtIndex:y] objectFromJSONString] objectForKey:@"text"];
+                    }
+                    else {
+                        comments = @"";
+                    }
+                    
+                    [[EventBus defaultEventBus] fireEvent:[PictureEvent eventWithURL:url handle:handle comments:comments]];
                 }
                 
                 if ([chunks lastObject]  ) {
@@ -86,35 +109,52 @@
 
 @end
 
-static NSString *kStreamEventType = @"StreamEvent";
 
-@implementation StreamEvent
-@synthesize data;
 
-- (id)initWithDic:(NSDictionary*) dic {
-    if ( self = [super init] )
-    {
-        [self setData:dic];
+/*****************************
+ * PictureEvent              *
+ *****************************/
+
+static NSString *kPictureEventType = @"PictureEvent";
+
+@implementation PictureEvent
+
+@synthesize url = url_;
+@synthesize handle = handle_;
+@synthesize comments = comments_;
+
++ (NSString*)type 
+{    
+    return kPictureEventType;
+}
+
+-(id)initWithURL:(NSString*)url
+{
+    if((self = [super init])) {
+        self.url = url;
     }
     return self;
-    
 }
 
-+ (NSString*)type
+-(id)initWithURL:(NSString*)url handle:(NSString*)handle comments:(NSString*)comments
 {
-    return kStreamEventType;
+    if((self = [super init])) {
+        self.url = url;
+        self.handle = handle;
+        self.comments = comments;
+    }
+    return self;
 }
 
-+(Event*)event
++(PictureEvent*)eventWithURL:(NSString *)url handle:(NSString*)handle comments:(NSString*)comments
 {
-    return [[[StreamEvent alloc] init] autorelease];
+    return [[[PictureEvent alloc] initWithURL:url handle:handle comments:comments] autorelease];
 }
 
-+(Event*)eventWithDic:(NSDictionary*) dic
++(PictureEvent*)eventWithURL:(NSString *)url
 {
-    return [[[StreamEvent alloc] initWithDic:dic] autorelease];
+    return [[[PictureEvent alloc] initWithURL:url] autorelease];
 }
-
-
 
 @end
+
