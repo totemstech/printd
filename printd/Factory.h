@@ -11,8 +11,8 @@
 
 // Config
 
-#define PRINT_VIEW_WIDTH 1748
-#define PRINT_VIEW_HEIGHT 1181
+#define PRINT_VIEW_WIDTH 1200
+#define PRINT_VIEW_HEIGHT 1800
 
 // Storage keys:
 
