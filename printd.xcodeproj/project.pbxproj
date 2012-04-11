@@ -18,7 +18,6 @@
 		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
 		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
 		D9B743D21535765700465819 /* StreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B743D11535765700465819 /* StreamController.m */; };
-		D9B743D51535766E00465819 /* ImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B743D41535766E00465819 /* ImageController.m */; };
 		D9CCA334152F298100A56228 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA333152F298100A56228 /* Cocoa.framework */; };
 		D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA33C152F298100A56228 /* InfoPlist.strings */; };
 		D9CCA340152F298100A56228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA33F152F298100A56228 /* main.m */; };
@@ -56,8 +55,6 @@
 		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		D9B743D01535765700465819 /* StreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamController.h; sourceTree = "<group>"; };
 		D9B743D11535765700465819 /* StreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamController.m; sourceTree = "<group>"; };
-		D9B743D31535766E00465819 /* ImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageController.h; sourceTree = "<group>"; };
-		D9B743D41535766E00465819 /* ImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageController.m; sourceTree = "<group>"; };
 		D9CCA32F152F298100A56228 /* printd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CCA333152F298100A56228 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D9CCA336152F298100A56228 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -232,8 +229,6 @@
 				D9CCA346152F298100A56228 /* AppDelegate.m */,
 				D9CCA348152F298100A56228 /* MainMenu.xib */,
 				D9CCA33A152F298100A56228 /* Supporting Files */,
-				D9B743D31535766E00465819 /* ImageController.h */,
-				D9B743D41535766E00465819 /* ImageController.m */,
 			);
 			path = printd;
 			sourceTree = "<group>";
@@ -323,7 +318,6 @@
 				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
 				D9B743D21535765700465819 /* StreamController.m in Sources */,
-				D9B743D51535766E00465819 /* ImageController.m in Sources */,
 				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
 				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
 				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
