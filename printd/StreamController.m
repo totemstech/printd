@@ -33,7 +33,7 @@
 
 
 - (void) start {
-    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://api.core.teleportd.com/stream?accesskey=53d9a10e2a7db6b7957be8cbbec599d57541e853a94d98fae6e7e7aca06d424cb49b1b200e9b80b032a549dd03d653735a238982d0dead1f509521f07dea7b30"];
+    NSMutableString *urlstring = [NSMutableString stringWithString:@"http://api.core.teleportd.com/stream?accesskey=53d9a10e2a7db6b7957be8cbbec599d57541e853a94d98fae6e7e7aca06d424cb49b1b200e9b80b032a549dd03d653735a238982d0dead1f509521f07dea7b30&loc=[0,0,180,360]"];
     
     NSURL * url = [NSURL URLWithString:urlstring];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -59,30 +59,23 @@
             NSArray *chunks = [buffer componentsSeparatedByString:@"\r\n"];
             
            // NSRange range = [dataMutableString rangeOfString:@"\r\n"];
-                   
-            for (int y = 0; y < [chunks count]; y++) {
-                //NSLog(@"%@", [chunks objectAtIndex:y]);
-                [[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:[[chunks objectAtIndex:y ] objectFromJSONString]]];
-            }
             
-            if ([chunks lastObject]  ) {
+            if ([chunks count] == 1) {
+                //NSLog(@"%@", [[chunks objectAtIndex:0 ] objectFromJSONString]);
+                [[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:[[chunks objectAtIndex:0 ] objectFromJSONString]]];
+                [buffer setString:@""];
+            } else {
+                for (int y = 0; y < [chunks count] - 1; y++) {
+                   // NSLog(@"%@", [[chunks objectAtIndex:y ] objectFromJSONString]);
+                    [[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:[[chunks objectAtIndex:y ] objectFromJSONString]]];
+                }
+                
+                if ([chunks lastObject]  ) {
+                    [buffer setString:[chunks lastObject]];
+                }
                 
             }
-
-          //  NSString *jsonString = [buffer substringWithRange:range];
-         // NSLog(@"%@",[[NSString alloc]initWithData:data encoding:[request responseEncoding]]);
-          //  NSLog(@"%@",jsonString);
-            //TODO send the json to the appropriate method to proceed 
-            //downloading images
-            
-         //   NSDictionary *deserializedData = [jsonString objectFromJSONString];
-           
-            
-            //[[EventBus defaultEventBus] fireEvent:[StreamEvent eventWithDic:deserializedData]];
-  
-                
-                
-           // [buffer deleteCharactersInRange:range];
+     
         }
         
     }
