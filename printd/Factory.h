@@ -24,11 +24,8 @@
 }
 
 + (Factory *) sharedFactory;
-+ (BOOL) multitaskingSupported;
 + (NSString*)stringWithHexBytes:(NSData*)data;
 + (NSString*)SHA1forData:(NSData *)data;
-
-- (NSViewController*) rootController;
 
 @property (nonatomic, readonly, retain)  PrintController         *print;
 @property (nonatomic, readwrite, retain) AppDelegate             *printdAppDelegate;

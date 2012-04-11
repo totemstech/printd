@@ -12,15 +12,12 @@
 
 @interface Factory ()
 
-@property (nonatomic, readwrite, retain) NSViewController *rootController;
-
 @end
 
 static Factory *sharedFactory_ = nil;
 
 @implementation Factory
 
-@synthesize rootController = rootController_;
 @synthesize print = print_;
 @synthesize printdAppDelegate = printdAppDelegate_;
 
@@ -50,7 +47,7 @@ static Factory *sharedFactory_ = nil;
 	
     CC_SHA1_CTX sha1Context;
     CC_SHA1_Init(&sha1Context);
-    CC_SHA1_Update(&sha1Context, data.bytes, data.length);
+    CC_SHA1_Update(&sha1Context, data.bytes, (int)data.length);
 	CC_SHA1_Final(digest, &sha1Context);
     
     return [Factory stringWithHexBytes:[NSData dataWithBytes:digest length:CC_SHA1_DIGEST_LENGTH]];
@@ -69,19 +66,11 @@ static Factory *sharedFactory_ = nil;
 
 - (void)dealloc
 {    
-    [rootController_ release];
     [print_ release];
     
     [super dealloc];
 }
 
-
-- (NSViewController*) rootController {    
-    if(rootController_ == nil) {
-        return nil;
-    }
-    return rootController_;    
-}
 
 @end
 
