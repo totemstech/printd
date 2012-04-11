@@ -10,7 +10,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-    NSMutableString *dataMutableString;  
+   
 }
 @property (assign) IBOutlet NSWindow *window;
 
