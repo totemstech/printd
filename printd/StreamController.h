@@ -25,10 +25,9 @@
 @interface PictureEvent : Event {
 }
 +(PictureEvent*)eventWithURL:(NSString*)url;
-+(PictureEvent*)eventWithURL:(NSString *)url handle:(NSString*)handle comments:(NSString*)comments;
++(PictureEvent*)eventWithURL:(NSString *)url handle:(NSString*)handle;
 
 @property (nonatomic, readwrite, retain) NSString* url;
 @property (nonatomic, readwrite, retain) NSString* handle;
-@property (nonatomic, readwrite, retain) NSString* comments;
 @end
 

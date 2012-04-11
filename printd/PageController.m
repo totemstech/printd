@@ -15,10 +15,11 @@
 
 @implementation PageController
 
-
-- (id)init {
+- (id)init 
+{
     if ( self = [super init] )
     {
+        events_ = [[NSMutableDictionary alloc] initWithCapacity:10];        
         [[EventBus defaultEventBus] addHandler:self 
                                      eventType:[PictureEvent type] 
                                       selector:@selector(onPicture:)];
@@ -28,25 +29,38 @@
 }
 
 
+- (void) dealloc 
+{
+    [events_ release];
+    
+    [super dealloc];
+}
+
+
 - (void)onPicture:(PictureEvent *)evt
 {
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
+    NSLog(@"PICTURE: %@", [evt url]);
     
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
+
     [request setDelegate:self];
     [request startAsynchronous];
-    
-    NSLog(@"%@ %@ %@", evt.url, evt.handle, evt.comments); 
-  
+
+    [events_ setObject:evt forKey:[[request originalURL] absoluteString]];    
 }
 
 
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
-
-    NSView* vw = [self buildPage:pic event:nil];    
-    [[[Factory sharedFactory] printController] printView:vw];
+    PictureEvent *evt = [events_ objectForKey:[[request originalURL] absoluteString]];    
+    [events_ removeObjectForKey:[[request originalURL] absoluteString]];
+    
+    NSLog(@"%@", [evt url]);
+    
+    //NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
+    //NSView* vw = [self buildPage:pic event:nil];    
+    //[[[Factory sharedFactory] printController] printView:vw];
 }
 
 

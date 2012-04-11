@@ -35,15 +35,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-
-    // [Factory sharedFactory] ...
-    NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
-    [[[Factory sharedFactory] printController] printView:vw];
-    
+    //PageController * pc = [[Factory sharedFactory] pageController];
     /*******************************
      * START!!!                    *
      *******************************/    
-    //[[[Factory sharedFactory] streamController] start];
+    [[[Factory sharedFactory] streamController] start];
 }
 @end
