@@ -14,9 +14,6 @@
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
 		0F3E9BA51535C09700051A3C /* NSPrinter+PaperSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9BA41535C09700051A3C /* NSPrinter+PaperSize.m */; };
 		0F3E9BAD1535C68500051A3C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BAC1535C68500051A3C /* bg.png */; };
-		0F3E9BBA1535CE4700051A3C /* ILImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9BB51535CE4700051A3C /* ILImageView.m */; };
-		0F3E9BBB1535CE4700051A3C /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9BB71535CE4700051A3C /* ImageLoader.m */; };
-		0F3E9BBC1535CE4700051A3C /* UIImageCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9BB91535CE4700051A3C /* UIImageCategory.m */; };
 		D9182E8115357DED0023FAD0 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8015357DED0023FAD0 /* PageController.m */; };
 		D9182E8C153586450023FAD0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8B153586450023FAD0 /* JSONKit.m */; };
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
@@ -54,12 +51,6 @@
 		0F3E9BA31535C09700051A3C /* NSPrinter+PaperSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPrinter+PaperSize.h"; sourceTree = "<group>"; };
 		0F3E9BA41535C09700051A3C /* NSPrinter+PaperSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPrinter+PaperSize.m"; sourceTree = "<group>"; };
 		0F3E9BAC1535C68500051A3C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		0F3E9BB41535CE4700051A3C /* ILImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILImageView.h; sourceTree = "<group>"; };
-		0F3E9BB51535CE4700051A3C /* ILImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILImageView.m; sourceTree = "<group>"; };
-		0F3E9BB61535CE4700051A3C /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
-		0F3E9BB71535CE4700051A3C /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
-		0F3E9BB81535CE4700051A3C /* UIImageCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageCategory.h; sourceTree = "<group>"; };
-		0F3E9BB91535CE4700051A3C /* UIImageCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCategory.m; sourceTree = "<group>"; };
 		D9182E7F15357DED0023FAD0 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		D9182E8015357DED0023FAD0 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		D9182E8A153586450023FAD0 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -180,19 +171,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		0F3E9BB21535CE2700051A3C /* ImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				0F3E9BB41535CE4700051A3C /* ILImageView.h */,
-				0F3E9BB51535CE4700051A3C /* ILImageView.m */,
-				0F3E9BB61535CE4700051A3C /* ImageLoader.h */,
-				0F3E9BB71535CE4700051A3C /* ImageLoader.m */,
-				0F3E9BB81535CE4700051A3C /* UIImageCategory.h */,
-				0F3E9BB91535CE4700051A3C /* UIImageCategory.m */,
-			);
-			name = ImageLoader;
-			sourceTree = "<group>";
-		};
 		D9B743A915356F9D00465819 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +233,6 @@
 		D9CCA339152F298100A56228 /* printd */ = {
 			isa = PBXGroup;
 			children = (
-				0F3E9BB21535CE2700051A3C /* ImageLoader */,
 				D9B743D61535777700465819 /* Stream */,
 				D9B743A915356F9D00465819 /* JSON */,
 				0F3E9B7A15356F1200051A3C /* Event */,
@@ -366,9 +343,6 @@
 				D9182E8115357DED0023FAD0 /* PageController.m in Sources */,
 				D9182E8C153586450023FAD0 /* JSONKit.m in Sources */,
 				0F3E9BA51535C09700051A3C /* NSPrinter+PaperSize.m in Sources */,
-				0F3E9BBA1535CE4700051A3C /* ILImageView.m in Sources */,
-				0F3E9BBB1535CE4700051A3C /* ImageLoader.m in Sources */,
-				0F3E9BBC1535CE4700051A3C /* UIImageCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

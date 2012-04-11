@@ -12,8 +12,11 @@
 
 @interface StreamController : NSObject
 {
-    NSMutableString *dataMutableString; 
+    NSMutableString *buffer; 
 }
+
+- (void) start;
+
 @end
 
 
@@ -24,5 +27,4 @@
 +(PictureEvent*)eventWithURL:(NSString*)url;
 @property (nonatomic, readwrite, retain) NSString* url;
 @end
-
 

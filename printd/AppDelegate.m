@@ -38,5 +38,6 @@
     // Insert code here to initialize your application
 
     // [Factory sharedFactory] ...
+    [Factory sharedFactory];
 }
 @end
