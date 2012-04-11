@@ -71,3 +71,38 @@
 }
 
 @end
+
+
+
+
+
+/*****************************
+ * PictureEvent              *
+ *****************************/
+
+static NSString *kPictureEventType = @"PictureEvent";
+
+@implementation PictureEvent
+
+@synthesize url = url_;
+
++ (NSString*)type 
+{    
+    return kPictureEventType;
+}
+
+-(id)initWithURL:(NSString*)url
+{
+    if((self = [super init])) {
+        self.url = url;
+    }
+    return self;
+}
+
++(PictureEvent*)eventWithURL:(NSString *)url
+{
+    return [[[PictureEvent alloc] initWithURL:url] autorelease];
+}
+
+@end
+

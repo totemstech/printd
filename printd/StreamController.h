@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Event.h"
 
 
 @interface StreamController : NSObject
@@ -15,3 +15,14 @@
     NSMutableString *dataMutableString; 
 }
 @end
+
+
+// Events
+
+@interface PictureEvent : Event {
+}
++(PictureEvent*)eventWithURL:(NSString*)url;
+@property (nonatomic, readwrite, retain) NSString* url;
+@end
+
+
