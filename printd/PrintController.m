@@ -8,7 +8,6 @@
 
 #import "PrintController.h"
 #import "Factory.h"
-#import "NSPrinter+PaperSize.h"
 
 @interface PrintController ()
 

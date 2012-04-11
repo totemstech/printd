@@ -71,7 +71,7 @@ static Factory *sharedFactory_ = nil;
 
 - (void)dealloc
 {    
-    [print_ release];
+    [printController_ release];
     [streamController_ release];
     [pageController_ release];
     [super dealloc];

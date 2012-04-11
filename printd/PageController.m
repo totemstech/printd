@@ -9,6 +9,7 @@
 #import "PageController.h"
 #import "StreamController.h"
 #import "ASIHTTPRequest.h"
+#import "EventBus.h"
 
 @implementation PageController
 
@@ -17,29 +18,31 @@
     if ( self = [super init] )
     {
         [[EventBus defaultEventBus] addHandler:self 
-                                     eventType:[StreamEvent type] 
-                                      selector:@selector(onStream:)];
+                                     eventType:[PictureEvent type] 
+                                      selector:@selector(onPicture:)];
     }
     return self;
     
 }
 
 
-- (void)onStream:(StreamEvent*)evt
+- (void)onPicture:(PictureEvent *)evt
 {
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[[evt data] objectForKey:@"fll"]];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
     
     [request setDelegate:self];
     [request startAsynchronous];
-    NSLog(@"%@",[evt data]);
+
+    NSLog(@"%@", evt.url);
 }
 
 
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
- 
+    
 }
+
 
 /*
  NSImage* img = [NSImage imageNamed:@"bg.png"];    

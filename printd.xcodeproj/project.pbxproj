@@ -12,7 +12,6 @@
 		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
 		0F3E9B8315356F3100051A3C /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8015356F3100051A3C /* Registration.m */; };
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
-		0F3E9BA51535C09700051A3C /* NSPrinter+PaperSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9BA41535C09700051A3C /* NSPrinter+PaperSize.m */; };
 		0F3E9BAD1535C68500051A3C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BAC1535C68500051A3C /* bg.png */; };
 		D9182E8115357DED0023FAD0 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8015357DED0023FAD0 /* PageController.m */; };
 		D9182E8C153586450023FAD0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8B153586450023FAD0 /* JSONKit.m */; };
@@ -48,8 +47,6 @@
 		0F3E9B8015356F3100051A3C /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
 		0F3E9B8415356FF200051A3C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
-		0F3E9BA31535C09700051A3C /* NSPrinter+PaperSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPrinter+PaperSize.h"; sourceTree = "<group>"; };
-		0F3E9BA41535C09700051A3C /* NSPrinter+PaperSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPrinter+PaperSize.m"; sourceTree = "<group>"; };
 		0F3E9BAC1535C68500051A3C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		D9182E7F15357DED0023FAD0 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		D9182E8015357DED0023FAD0 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
@@ -144,8 +141,6 @@
 				0F3E9B7415356E6100051A3C /* PrintController.m */,
 				D9182E7F15357DED0023FAD0 /* PageController.h */,
 				D9182E8015357DED0023FAD0 /* PageController.m */,
-				0F3E9BA31535C09700051A3C /* NSPrinter+PaperSize.h */,
-				0F3E9BA41535C09700051A3C /* NSPrinter+PaperSize.m */,
 			);
 			name = Print;
 			sourceTree = "<group>";
@@ -342,7 +337,6 @@
 				0F3E9B8615356FF200051A3C /* Factory.m in Sources */,
 				D9182E8115357DED0023FAD0 /* PageController.m in Sources */,
 				D9182E8C153586450023FAD0 /* JSONKit.m in Sources */,
-				0F3E9BA51535C09700051A3C /* NSPrinter+PaperSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
