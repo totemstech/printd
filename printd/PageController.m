@@ -46,7 +46,7 @@
     [request setDelegate:self];
     [request startAsynchronous];
 
-    [events_ setObject:evt forKey:[[request originalURL] absoluteString]];    
+    [events_ setObject:evt forKey:[evt url]];    
 }
 
 
@@ -56,7 +56,7 @@
     PictureEvent *evt = [events_ objectForKey:[[request originalURL] absoluteString]];    
     [events_ removeObjectForKey:[[request originalURL] absoluteString]];
     
-    NSLog(@"%@", [evt url]);
+    NSLog(@"RECEIVED: %@", [evt url]);
     
     //NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
     //NSView* vw = [self buildPage:pic event:nil];    
