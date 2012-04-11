@@ -20,7 +20,6 @@
     if ( self = [super init] )
     {
         buffer = [[NSMutableString alloc] init];
-        [ self start];
     }
     return self;
 }

@@ -13,12 +13,6 @@
 #import "Factory.h"
 
 
-@interface PageController ()
-
-- (void) buildPage:(NSImage *)img;
-
-@end
-
 @implementation PageController
 
 
@@ -50,41 +44,70 @@
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
     NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
-    [self buildPage:pic];
+
+    NSView* vw = [self buildPage:pic event:nil];    
+    [[[Factory sharedFactory] printController] printView:vw];
 }
 
 
-/*
- NSImage* img = [NSImage imageNamed:@"bg.png"];    
- NSImageView* view = [[NSImageView alloc] initWithFrame:NSMakeRect(0.0,0.0,PRINT_VIEW_WIDTH,PRINT_VIEW_HEIGHT)];
- [view setImage:img];    
- 
- [[[Factory sharedFactory] printController] printView: view];
-*/
-
-- (void) buildPage:(NSImage *)pic
+- (NSView*) buildPage:(NSImage *)pic event:(PictureEvent*)evt
 {
-    /*
-    NSView *picView = [[NSView alloc] initWithFrame:NSMakeRect(100.0, 100.0, 1000, 1000)];
-    
-    NSImage *final = [[NSImage alloc] initWithSize:NSMakeSize(PRINT_IMAGE_WIDTH, PRINT_IMAGE_HEIGHT)];
-    
-    
-    
-    NSImage *final = pic;
-    if (pic.size.width * picView.frame.size.height > picView.frame.size.width * pic.size.height) {
-        final = [pic imageAtRect:CGRectMake((pic.size.width - pic.size.height * picView.frame.size.width / picView.frame.size.height) / 2,
-                                            0.0f,
-                                            pic.size.height * picView.frame.size.width / picView.frame.size.height, 
-                                            pic.size.height)];
+    NSImage *cropped;
+
+    if (pic.size.width * PRINT_IMAGE_HEIGHT > PRINT_IMAGE_WIDTH * pic.size.height) {
+        cropped = [[[NSImage alloc] initWithSize:NSMakeSize(pic.size.height * PRINT_IMAGE_WIDTH / PRINT_IMAGE_HEIGHT,
+                                                            pic.size.height)] autorelease];     
+        [cropped lockFocus];
+        CGRect from = CGRectMake((pic.size.width - pic.size.height * PRINT_IMAGE_WIDTH / PRINT_IMAGE_HEIGHT) / 2,
+                                 0.0f,
+                                 pic.size.height * PRINT_IMAGE_WIDTH / PRINT_IMAGE_HEIGHT, 
+                                 pic.size.height);
+        [pic drawInRect:NSMakeRect(0.0f, 0.0f, 
+                                   pic.size.height * PRINT_IMAGE_WIDTH / PRINT_IMAGE_HEIGHT,
+                                   pic.size.height)
+               fromRect:from
+              operation:NSCompositeCopy 
+               fraction:1.0f];
+        
+        [cropped unlockFocus];
     }
-    else {
-        final = [pic imageAtRect:CGRectMake(0.0f,
-                                            (pic.size.height - pic.size.width * picView.frame.size.height / picView.frame.size.width) / 2,                                              
-                                            pic.size.width,
-                                            pic.size.width * picView.frame.size.height / picView.frame.size.width)];        
+    else {        
+        cropped = [[[NSImage alloc] initWithSize:NSMakeSize(pic.size.width,
+                                                            pic.size.width * PRINT_IMAGE_HEIGHT / PRINT_IMAGE_WIDTH)] autorelease];     
+        [cropped lockFocus];
+        CGRect from = CGRectMake(0.0f,
+                                 (pic.size.height - pic.size.width * PRINT_IMAGE_HEIGHT / PRINT_IMAGE_WIDTH) / 2,                                              
+                                 pic.size.width,
+                                 pic.size.width * PRINT_IMAGE_HEIGHT / PRINT_IMAGE_WIDTH);
+        [pic drawInRect:NSMakeRect(0.0f, 0.0f, 
+                                   pic.size.width, 
+                                   pic.size.width * PRINT_IMAGE_HEIGHT / PRINT_IMAGE_WIDTH)
+               fromRect:from
+              operation:NSCompositeCopy 
+               fraction:1.0];
+        
+        [cropped unlockFocus];
     }
-*/
+    
+    [cropped setSize:NSMakeSize(PRINT_IMAGE_WIDTH, PRINT_IMAGE_HEIGHT)];    
+    
+    NSImage *final = [NSImage imageNamed:@"bg.png"];
+    
+    [final lockFocus];
+    
+    [cropped drawInRect:CGRectMake((PRINT_VIEW_WIDTH - PRINT_IMAGE_WIDTH) / 2.0, 
+                                   PRINT_VIEW_HEIGHT - PRINT_IMAGE_HEIGHT - 100.0, 
+                                   PRINT_IMAGE_WIDTH, PRINT_IMAGE_HEIGHT) 
+               fromRect:CGRectMake(0.0f, 0.0f, PRINT_IMAGE_WIDTH, PRINT_IMAGE_HEIGHT) 
+              operation:NSCompositeCopy
+               fraction:1.0f];
+    
+    [final unlockFocus];
+    
+    NSImageView* view = [[NSImageView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, PRINT_VIEW_WIDTH, PRINT_VIEW_HEIGHT)];
+    [view setImage:final]; 
+    
+    return [view autorelease];
 }
 
 @end

@@ -13,6 +13,6 @@
 @interface PageController : NSObject
 
 - (void)onPicture:(PictureEvent*)evt;
-
+- (NSView*) buildPage:(NSImage *)pic event:(PictureEvent*)evt;
 
 @end
