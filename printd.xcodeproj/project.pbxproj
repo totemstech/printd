@@ -178,7 +178,6 @@
 			name = Screen;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		D9B743A915356F9D00465819 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,12 +219,6 @@
 			name = Stream;
 			sourceTree = "<group>";
 		};
-		D9B743D71535782900465819 /* Print */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Print;
-=======
 		0F3E9B7115356DFC00051A3C /* Print */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +239,6 @@
 				0F3E9B8015356F3100051A3C /* Registration.m */,
 			);
 			name = Event;
->>>>>>> 1434af673d6e1dfe5b164ee3206a5128ae64b8a1
 			sourceTree = "<group>";
 		};
 		D9CCA324152F298000A56228 = {
@@ -293,13 +285,10 @@
 		D9CCA339152F298100A56228 /* printd */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				D9B743D71535782900465819 /* Print */,
 				D9B743D61535777700465819 /* Stream */,
 				D9B743A915356F9D00465819 /* JSON */,
-=======
 				0F3E9B7A15356F1200051A3C /* Event */,
->>>>>>> 1434af673d6e1dfe5b164ee3206a5128ae64b8a1
 				0F151C9C152F37F2005EF71B /* ASHTTPRequest */,
 				0F151C9E152F3812005EF71B /* Screen */,
 				0F3E9B7115356DFC00051A3C /* Print */,
@@ -399,7 +388,6 @@
 				D9CCA3A6152F2F6500A56228 /* ASIHTTPRequest.m in Sources */,
 				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
-<<<<<<< HEAD
 				D9B743C415356FE000465819 /* NSObject+SBJson.m in Sources */,
 				D9B743C515356FE000465819 /* SBJsonParser.m in Sources */,
 				D9B743C615356FE000465819 /* SBJsonStreamParser.m in Sources */,
@@ -414,14 +402,12 @@
 				D9B743CF15356FE000465819 /* SBJsonWriter.m in Sources */,
 				D9B743D21535765700465819 /* StreamController.m in Sources */,
 				D9B743D51535766E00465819 /* ImageController.m in Sources */,
-=======
 				0F151CA6152F3966005EF71B /* ScreenController.m in Sources */,
 				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
 				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
 				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
 				0F3E9B8315356F3100051A3C /* Registration.m in Sources */,
 				0F3E9B8615356FF200051A3C /* Factory.m in Sources */,
->>>>>>> 1434af673d6e1dfe5b164ee3206a5128ae64b8a1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
