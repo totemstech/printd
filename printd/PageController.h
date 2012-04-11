@@ -10,9 +10,10 @@
 #import "StreamController.h"
 
 
-@interface PageController : NSObject
+@interface PageController : NSObject {
+    NSMutableDictionary    *events_;
+}
 
 - (void)onPicture:(PictureEvent*)evt;
-
 
 @end

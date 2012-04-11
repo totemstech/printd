@@ -21,10 +21,11 @@
 
 @implementation PageController
 
-
-- (id)init {
+- (id)init 
+{
     if ( self = [super init] )
     {
+        events_ = [[NSMutableDictionary alloc] initWithCapacity:10];        
         [[EventBus defaultEventBus] addHandler:self 
                                      eventType:[PictureEvent type] 
                                       selector:@selector(onPicture:)];
@@ -34,21 +35,31 @@
 }
 
 
+- (void) dealloc 
+{
+    [events_ release];
+    
+    [super dealloc];
+}
+
+
 - (void)onPicture:(PictureEvent *)evt
 {
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
     
     [request setDelegate:self];
     [request startAsynchronous];
-    
-    NSLog(@"%@ %@ %@", evt.url, evt.handle, evt.comments); 
-  
+
+    [events_ setObject:evt forKey:request];    
 }
 
 
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
+    PictureEvent *evt = [events_ objectForKey:request];    
+    [events_ removeObjectForKey:request];
+    
     NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
     [self buildPage:pic];
 }
