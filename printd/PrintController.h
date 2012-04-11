@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface PrintController : NSObject {
     
 }
 
+- (void)printView:(NSView*)pview;
+
+
+// Delegate Method
+
 -(void)printOperationDidRun:(NSPrintOperation *)printOperation
                     success:(BOOL)success
                 contextInfo:(void *)info;
+
 
 @end

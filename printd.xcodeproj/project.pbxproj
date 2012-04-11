@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F151CA6152F3966005EF71B /* ScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F151CA4152F3966005EF71B /* ScreenController.m */; };
 		0F3E9B7515356E6100051A3C /* PrintController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7415356E6100051A3C /* PrintController.m */; };
 		0F3E9B8115356F3100051A3C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7C15356F3100051A3C /* Event.m */; };
 		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
@@ -37,8 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F151CA3152F3966005EF71B /* ScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenController.h; sourceTree = "<group>"; };
-		0F151CA4152F3966005EF71B /* ScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenController.m; sourceTree = "<group>"; };
 		0F3E9B7315356E6100051A3C /* PrintController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintController.h; sourceTree = "<group>"; };
 		0F3E9B7415356E6100051A3C /* PrintController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintController.m; sourceTree = "<group>"; };
 		0F3E9B7B15356F3100051A3C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -135,15 +132,6 @@
 			name = ASHTTPRequest;
 			sourceTree = "<group>";
 		};
-		0F151C9E152F3812005EF71B /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				0F151CA3152F3966005EF71B /* ScreenController.h */,
-				0F151CA4152F3966005EF71B /* ScreenController.m */,
-			);
-			name = Screen;
-			sourceTree = "<group>";
-		};
 		0F3E9B7115356DFC00051A3C /* Print */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,7 +220,6 @@
 				D9B743A915356F9D00465819 /* JSON */,
 				0F3E9B7A15356F1200051A3C /* Event */,
 				0F151C9C152F37F2005EF71B /* ASHTTPRequest */,
-				0F151C9E152F3812005EF71B /* Screen */,
 				0F3E9B7115356DFC00051A3C /* Print */,
 				0F3E9B8415356FF200051A3C /* Factory.h */,
 				0F3E9B8515356FF200051A3C /* Factory.m */,
@@ -332,7 +319,6 @@
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
 				D9B743D21535765700465819 /* StreamController.m in Sources */,
 				D9B743D51535766E00465819 /* ImageController.m in Sources */,
-				0F151CA6152F3966005EF71B /* ScreenController.m in Sources */,
 				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
 				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
 				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
