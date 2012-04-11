@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SBJSON.h"
+
 
 
 @interface StreamController : NSObject
 {
     NSMutableString *dataMutableString; 
-    SBJsonParser *jsonParser;
 }
 @end

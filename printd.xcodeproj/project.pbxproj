@@ -14,6 +14,7 @@
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
 		0F3E9B961535876300051A3C /* news.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9B951535876300051A3C /* news.jpeg */; };
 		D9182E8115357DED0023FAD0 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8015357DED0023FAD0 /* PageController.m */; };
+		D9182E8C153586450023FAD0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8B153586450023FAD0 /* JSONKit.m */; };
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
 		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
 		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
@@ -49,6 +50,8 @@
 		0F3E9B951535876300051A3C /* news.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = news.jpeg; sourceTree = "<group>"; };
 		D9182E7F15357DED0023FAD0 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		D9182E8015357DED0023FAD0 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
+		D9182E8A153586450023FAD0 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		D9182E8B153586450023FAD0 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D9A5BAA7152F333500400882 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -166,6 +169,8 @@
 		D9B743A915356F9D00465819 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				D9182E8A153586450023FAD0 /* JSONKit.h */,
+				D9182E8B153586450023FAD0 /* JSONKit.m */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				0F3E9B8315356F3100051A3C /* Registration.m in Sources */,
 				0F3E9B8615356FF200051A3C /* Factory.m in Sources */,
 				D9182E8115357DED0023FAD0 /* PageController.m in Sources */,
+				D9182E8C153586450023FAD0 /* JSONKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

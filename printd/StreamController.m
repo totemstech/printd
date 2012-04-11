@@ -9,7 +9,8 @@
 #import "StreamController.h"
 #import "ASIFormDataRequest.h"
 #import "ASIHTTPRequest.h"
-
+#import "JSONKit.h"
+#import "Factory.h"
 @implementation StreamController
 
 - (id)init
@@ -17,7 +18,6 @@
     if ( self = [super init] )
     {
         dataMutableString = [[NSMutableString alloc] init];
-        jsonParser = [[SBJsonParser alloc] init];
     }
     return self;
 }
@@ -26,7 +26,6 @@
 - (void) dealloc
 {
     [dataMutableString release];
-    [jsonParser release];
     [super dealloc];
 }
 
@@ -61,26 +60,11 @@
             //TODO send the json to the appropriate method to proceed 
             //downloading images
             NSError * error;
-            id jsonObject = [jsonParser objectWithString:jsonString error:&error];
-            
-            if ([jsonObject isKindOfClass:[NSDictionary class]]){
-                
-                for (NSDictionary *dict in jsonObject)
-                {
-                    /* Person *newPerson = [[[Person alloc] init] autorelease];
-                     [newPerson setFirstName:[dict objectForKey:@"firstName"]];
-                     [newPerson setLastName:[dict objectForKey:@"lastName"]];
-                     [newPerson setAge:[[dict objectForKey:@"age"] intValue]];
-                     [newPerson setAddress:[dict objectForKey:@"address"]];
-                     [newPerson setPhoneNumbers:[dict objectForKey:@"phoneNumber"]];
-                     
-                     [people addObject:newPerson];*/
-                }        
-            }
-            else if ([jsonObject isKindOfClass:[NSArray class]])
+            NSDictionary *deserializedData = [jsonString objectFromJSONString];
+  
                 
                 
-                [dataMutableString deleteCharactersInRange:range];
+            [dataMutableString deleteCharactersInRange:range];
         }
     }
     
