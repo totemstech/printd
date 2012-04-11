@@ -8,6 +8,7 @@
 
 #import "PrintController.h"
 #import "Factory.h"
+#import "NSPrinter+PaperSize.h"
 
 @interface PrintController ()
 
@@ -26,6 +27,7 @@
     }
     
     return self;
+    
 }
 
 - (void)dealloc 
@@ -39,23 +41,18 @@
                             printOperationWithView:pview
                             printInfo:[self printInfo]];
 
-    [op runOperationModalForWindow:[[[Factory sharedFactory] printdAppDelegate] window]
-                          delegate:self
-                    didRunSelector:@selector(printOperationDidRun:success:contextInfo:)
-                       contextInfo:NULL];    
+    [op setShowsPrintPanel:YES];
     
-}
-
-
--(void)printOperationDidRun:(NSPrintOperation *)printOperation
-                    success:(BOOL)success
-                contextInfo:(void *)info
-{
+    BOOL success = [op runOperation];
+    //BOOL success = YES;
+    
     if(success)
         NSLog(@"PRINT SUCCESSFUL");
     else
-        NSLog(@"PRINT FAILED");
+        NSLog(@"PRINT FAILED");    
 }
+
+
 
 -(NSPrintInfo*)printInfo
 {
@@ -66,6 +63,13 @@
     [printInfo setRightMargin:0.0];
     [printInfo setHorizontalPagination:NSFitPagination];
     [printInfo setVerticalPagination:NSFitPagination];
+    [printInfo setHorizontallyCentered:YES];
+    [printInfo setVerticallyCentered:YES];
+    [printInfo setPaperName:@"Postcard(4x6in)"];
+    
+    
+    //NSPrinter *printer = [[NSPrinter printerNames] objectAtIndex:0];
+    //NSLog(@"%@", [NSPrinter paperSizesAndNamesForPrinter:[[NSPrinter printerNames] objectAtIndex:0]]);
     
     return printInfo;
 }

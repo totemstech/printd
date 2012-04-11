@@ -18,7 +18,7 @@ static Factory *sharedFactory_ = nil;
 
 @implementation Factory
 
-@synthesize print = print_;
+@synthesize printController = printController_;
 @synthesize printdAppDelegate = printdAppDelegate_;
 @synthesize streamController  = streamController_;
 @synthesize pageController    = pageController_;
@@ -60,9 +60,10 @@ static Factory *sharedFactory_ = nil;
 {
     if((self = [super init])) {
         printdAppDelegate_ = (AppDelegate*)[[NSApplication sharedApplication] delegate];
-        print_ = [[PrintController alloc] init];
         streamController_  = [[StreamController alloc] init];
         pageController_    = [[PageController alloc] init];
+        printController_ = [[PrintController alloc] init];
+
     }
                                
     return self;
