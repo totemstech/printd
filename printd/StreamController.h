@@ -10,12 +10,14 @@
 #import "Event.h"
 
 
+
 @interface StreamController : NSObject
 {
-    NSMutableString *buffer; 
+    NSMutableDictionary * streams;
 }
 
-- (void) start;
+- (void) addStream:(NSDictionary*)query withName:(NSString*)name;
+- (void) stopStream:(NSString*)name;
 
 @end
 
@@ -24,10 +26,11 @@
 
 @interface PictureEvent : Event {
 }
-+(PictureEvent*)eventWithURL:(NSString*)url;
-+(PictureEvent*)eventWithURL:(NSString *)url handle:(NSString*)handle;
++(PictureEvent*)eventWithURL:(NSString*)url pic:(id)pic from:(NSString*)stream;
+
 
 @property (nonatomic, readwrite, retain) NSString* url;
-@property (nonatomic, readwrite, retain) NSString* handle;
+@property (nonatomic, readwrite, retain) NSString* stream;
+@property (nonatomic, readwrite, retain) id pic;
 @end
 

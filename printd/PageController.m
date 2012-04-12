@@ -39,13 +39,13 @@
 
 - (void)onPicture:(PictureEvent *)evt
 {
-    NSLog(@"PICTURE: %@", [evt url]);
-    
+    NSLog(@"PICTURE: %@ %@", [evt url], [evt stream]);
+    /*
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
 
     [request setDelegate:self];
     [request startAsynchronous];
-
+*/
     [events_ setObject:evt forKey:[evt url]];    
 }
 
