@@ -14,6 +14,9 @@
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
 		0F3E9BC21535ECD800051A3C /* test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BC11535ECD800051A3C /* test.jpeg */; };
 		0F3E9BD71536D46300051A3C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BD61536D46300051A3C /* bg.png */; };
+		3D814B2D1536D9A4005CF3E3 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D814B2C1536D9A4005CF3E3 /* TwitterController.m */; };
+		3D814B301536D9CD005CF3E3 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */; };
+		3D814B321536D9D8005CF3E3 /* liboauth.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B311536D9D8005CF3E3 /* liboauth.dylib */; };
 		D9182E8115357DED0023FAD0 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8015357DED0023FAD0 /* PageController.m */; };
 		D9182E8C153586450023FAD0 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D9182E8B153586450023FAD0 /* JSONKit.m */; };
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
@@ -50,6 +53,10 @@
 		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		0F3E9BC11535ECD800051A3C /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpeg; sourceTree = "<group>"; };
 		0F3E9BD61536D46300051A3C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		3D814B2B1536D9A4005CF3E3 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
+		3D814B2C1536D9A4005CF3E3 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
+		3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
+		3D814B311536D9D8005CF3E3 /* liboauth.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liboauth.dylib; path = usr/local/lib/liboauth.dylib; sourceTree = SDKROOT; };
 		D9182E7F15357DED0023FAD0 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		D9182E8015357DED0023FAD0 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		D9182E8A153586450023FAD0 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
@@ -99,6 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D814B321536D9D8005CF3E3 /* liboauth.dylib in Frameworks */,
+				3D814B301536D9CD005CF3E3 /* libcurl.dylib in Frameworks */,
 				D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */,
 				D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */,
 				D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */,
@@ -143,6 +152,8 @@
 				0F3E9B7415356E6100051A3C /* PrintController.m */,
 				D9182E7F15357DED0023FAD0 /* PageController.h */,
 				D9182E8015357DED0023FAD0 /* PageController.m */,
+				3D814B2B1536D9A4005CF3E3 /* TwitterController.h */,
+				3D814B2C1536D9A4005CF3E3 /* TwitterController.m */,
 			);
 			name = Print;
 			sourceTree = "<group>";
@@ -207,6 +218,8 @@
 		D9CCA332152F298100A56228 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */,
+				3D814B311536D9D8005CF3E3 /* liboauth.dylib */,
 				D9A5BAA9152F337200400882 /* CoreServices.framework */,
 				D9A5BAA7152F333500400882 /* libz.dylib */,
 				D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */,
@@ -341,6 +354,7 @@
 				0F3E9B8615356FF200051A3C /* Factory.m in Sources */,
 				D9182E8115357DED0023FAD0 /* PageController.m in Sources */,
 				D9182E8C153586450023FAD0 /* JSONKit.m in Sources */,
+				3D814B2D1536D9A4005CF3E3 /* TwitterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
