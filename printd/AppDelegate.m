@@ -35,8 +35,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
-    [[[Factory sharedFactory] printController] printView:vw];
+    //NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
+    //[[[Factory sharedFactory] printController] printView:vw];
+    
+    //[[[Factory sharedFactory] twitterController] updateStatus:@"@moi_anthony your picture will be printd soon !"];
     
     /*******************************
      * START!!!                    *

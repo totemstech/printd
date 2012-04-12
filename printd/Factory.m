@@ -22,6 +22,7 @@ static Factory *sharedFactory_ = nil;
 @synthesize printdAppDelegate = printdAppDelegate_;
 @synthesize streamController  = streamController_;
 @synthesize pageController    = pageController_;
+@synthesize twitterController = twitterController_;
 
 + (Factory *)sharedFactory 
 {
@@ -63,7 +64,7 @@ static Factory *sharedFactory_ = nil;
         streamController_  = [[StreamController alloc] init];
         pageController_    = [[PageController alloc] init];
         printController_ = [[PrintController alloc] init];
-
+        twitterController_ = [[TwitterController alloc] init];
     }
                                
     return self;
@@ -74,6 +75,7 @@ static Factory *sharedFactory_ = nil;
     [printController_ release];
     [streamController_ release];
     [pageController_ release];
+    [twitterController_ release];
     [super dealloc];
 }
 

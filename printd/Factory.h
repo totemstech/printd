@@ -10,6 +10,8 @@
 #import "StreamController.h"
 #import "AppDelegate.h"
 #import "PageController.h"
+#import "TwitterController.h"
+
 // Config
 
 #define PRINT_VIEW_WIDTH 1200
@@ -17,6 +19,7 @@
 
 #define PRINT_IMAGE_WIDTH 1000
 #define PRINT_IMAGE_HEIGHT 1000
+
 
 // Storage keys:
 
@@ -35,5 +38,6 @@
 @property (nonatomic, readwrite, retain) AppDelegate             *printdAppDelegate;
 @property (nonatomic, readonly, retain)  StreamController        *streamController;
 @property (nonatomic, readonly, retain)  PageController          *pageController;
+@property (nonatomic, readonly, retain)  TwitterController       *twitterController;
 
 @end
