@@ -23,6 +23,7 @@
         [[EventBus defaultEventBus] addHandler:self 
                                      eventType:[PictureEvent type] 
                                       selector:@selector(onPicture:)];
+        count_ = 0;
     }
     return self;
     
@@ -58,9 +59,13 @@
     
     NSLog(@"RECEIVED: %@", [evt url]);
     
+    ++count_;
+    
     //NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
     //NSView* vw = [self buildPage:pic event:nil];    
     //[[[Factory sharedFactory] printController] printView:vw];
+    
+    //TODO: tweet
 }
 
 

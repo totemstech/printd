@@ -10,7 +10,6 @@
 
 
 @interface PrintController : NSObject {
-    
 }
 
 - (void)printView:(NSView*)pview;
