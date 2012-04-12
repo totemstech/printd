@@ -35,10 +35,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //PageController * pc = [[Factory sharedFactory] pageController];
+    NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
+    [[[Factory sharedFactory] printController] printView:vw];
+    
     /*******************************
      * START!!!                    *
      *******************************/    
-    [[[Factory sharedFactory] streamController] start];
+    //[[[Factory sharedFactory] streamController] start];
 }
 @end

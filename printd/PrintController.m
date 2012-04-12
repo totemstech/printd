@@ -34,6 +34,16 @@
     [super dealloc];
 }
 
+- (void)printOperationDidRun:(NSPrintOperation *)printOperation
+                     success:(BOOL)success
+                 contextInfo:(void *)info {
+    if(success)
+        NSLog(@"PRINT SUCCESSFUL");
+    else
+        NSLog(@"PRINT FAILED");    
+}
+
+
 -(void)printView:(NSView *)pview
 {
     NSPrintOperation *op = [NSPrintOperation
@@ -42,15 +52,11 @@
 
     [op setShowsPrintPanel:YES];
     
-    BOOL success = [op runOperation];
-    //BOOL success = YES;
-    
-    if(success)
-        NSLog(@"PRINT SUCCESSFUL");
-    else
-        NSLog(@"PRINT FAILED");    
+    [op runOperationModalForWindow:[(AppDelegate*)[[NSApplication sharedApplication] delegate] window]
+                          delegate:self 
+                    didRunSelector:@selector(printOperationDidRun:success:contextInfo:)
+                       contextInfo:NULL];
 }
-
 
 
 -(NSPrintInfo*)printInfo
@@ -65,11 +71,7 @@
     [printInfo setHorizontallyCentered:YES];
     [printInfo setVerticallyCentered:YES];
     [printInfo setPaperName:@"Postcard(4x6in)"];
-    
-    
-    //NSPrinter *printer = [[NSPrinter printerNames] objectAtIndex:0];
-    //NSLog(@"%@", [NSPrinter paperSizesAndNamesForPrinter:[[NSPrinter printerNames] objectAtIndex:0]]);
-    
+        
     return printInfo;
 }
 
