@@ -35,7 +35,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    ///Users/mohamed/Documents/printd/test/printd/printd/AppDelegate.mPageController * pc = [[Factory sharedFactory] pageController];
+    NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
+    [[[Factory sharedFactory] printController] printView:vw];
+    
     /*******************************
      * START!!!                    *
      *******************************/   
@@ -69,5 +71,6 @@
     
     [[[Factory sharedFactory] streamController]addStream:dic2
                                                 withName:@"stream2"];
+   
 }
 @end

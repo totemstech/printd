@@ -12,9 +12,11 @@
 
 @interface PageController : NSObject {
     NSMutableDictionary    *events_;
+    NSInteger     count_;
 }
 
 - (void)onPicture:(PictureEvent*)evt;
+
 - (NSView*) buildPage:(NSImage *)pic event:(PictureEvent*)evt;
 
 @end
