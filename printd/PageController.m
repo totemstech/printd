@@ -121,6 +121,27 @@
     NSImageView* view = [[NSImageView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, PRINT_VIEW_WIDTH, PRINT_VIEW_HEIGHT)];
     [view setImage:final]; 
     
+    NSTextField *handle = [[[NSTextField alloc] initWithFrame:NSMakeRect(100.0f, 100.0f, 1200.0f, 200.f)] autorelease];
+    [handle setFont:[NSFont fontWithName:@"Helvetica Neue" size:78.0f]];
+    [handle setEditable:NO];
+    [handle setTextColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
+    [handle setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+    [handle setStringValue:@"spolu"];
+    [handle setBordered:NO];
+    [handle setBezeled:NO];
+    
+    NSTextField *time = [[[NSTextField alloc] initWithFrame:NSMakeRect(100.0f, 400.0f, 1200.0f, 200.f)] autorelease];
+    [time setFont:[NSFont fontWithName:@"Helvetica Neue" size:78.0f]];
+    [time setEditable:NO];
+    [time setTextColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
+    [time setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+    [time setStringValue:@"NOW"];
+    [time setBordered:NO];
+    [time setBezeled:NO];
+    
+    [view addSubview:handle];
+    [view addSubview:time];
+    
     return [view autorelease];
 }
 

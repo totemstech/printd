@@ -19,14 +19,11 @@
 @implementation PrintController
 
 - (id)init 
-{    
-    self = [super init];
-    
-    if (self != nil) {
-    }
-    
+{        
+    if(self = [super init]) {
+
+    }    
     return self;
-    
 }
 
 - (void)dealloc 
