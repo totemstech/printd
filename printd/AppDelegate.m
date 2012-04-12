@@ -35,42 +35,31 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSView *vw = [[[Factory sharedFactory] pageController] buildPage:[NSImage imageNamed:@"test.jpeg"] event:nil];
-    [[[Factory sharedFactory] printController] printView:vw];
     
     /*******************************
      * START!!!                    *
      *******************************/   
+    // hashtag
     NSMutableDictionary *dic1 = [[[NSMutableDictionary alloc] init] autorelease];
 
-    [dic1 setObject:[NSArray arrayWithObjects:
-                     [NSNumber numberWithFloat:45.0f],
-                     [NSNumber numberWithFloat:90.0f],
-                     [NSNumber numberWithFloat:90.0f],
-                     [NSNumber numberWithFloat:180.0f], 
-                    nil]
-            forKey:@"loc"];
-    
-    [dic1 setObject:[NSArray arrayWithObjects:@"yfrog", nil] forKey:@"track"];
+    [dic1 setObject:[NSArray arrayWithObjects:@"lajeuneur", nil] forKey:@"track"];
     
     [[[Factory sharedFactory] streamController]addStream:dic1
-                                                withName:@"stream1"];
+                                                withName:@"hashtag"];
     
-    // stream2
+    // loc
     NSMutableDictionary *dic2 = [[[NSMutableDictionary alloc] init] autorelease];
     
     [dic2 setObject:[NSArray arrayWithObjects:
-                    [NSNumber numberWithFloat:-45.0f],
-                    [NSNumber numberWithFloat:-90.0f],
-                    [NSNumber numberWithFloat:90.0f],
-                    [NSNumber numberWithFloat:180.0f], 
+                    [NSNumber numberWithFloat:48.869f],
+                    [NSNumber numberWithFloat:2.345f],
+                    [NSNumber numberWithFloat:0.003f],
+                    [NSNumber numberWithFloat:0.003f], 
                     nil]
             forKey:@"loc"];
     
-    [dic2 setObject:[NSArray arrayWithObjects:@"twitpic", nil] forKey:@"track"];
-    
     [[[Factory sharedFactory] streamController]addStream:dic2
-                                                withName:@"stream2"];
-   
+                                                withName:@"loc"];
+
 }
 @end

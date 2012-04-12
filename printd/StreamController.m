@@ -24,7 +24,7 @@
 {
     if ( self = [super init] )
     {
-        streams = [[NSMutableDictionary alloc] init];
+        streams_ = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -32,7 +32,7 @@
 
 - (void) dealloc
 {
-    [streams release];
+    [streams_ release];
     [super dealloc];
 }
 
@@ -69,39 +69,32 @@
     //request construction
     NSURL * url = [NSURL URLWithString:urlString];
     
- /*   ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setTimeOutSeconds:0];
-    [request setDelegate:self];
-    [request setUserInfo:[NSDictionary dictionaryWithObject:name forKey:@"name"]];
-   
-    NSMutableDictionary* details =  [[NSMutableDictionary alloc] init];
-    [details setObject:request forKey:@"request"];
-    [details setObject:[[[NSMutableString alloc] init] autorelease] forKey:@"buffer"];
-    [streams setObject:details forKey:name];*/
-    
     [self startStream:name url:url];
   
 }
 - (void) stopStream:(NSString*)name {
-    
-    [[[streams objectForKey:name] objectForKey:@"request"] clearDelegatesAndCancel];
+    @synchronized(streams_) {
+
+        [[[streams_ objectForKey:name] objectForKey:@"request"] clearDelegatesAndCancel];
+    }
 }
 
 
 - (void) startStream:(NSString*)name url:(NSURL*)url {
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setTimeOutSeconds:0];
-    [request setDelegate:self];
-    [request setUserInfo:[NSDictionary dictionaryWithObject:name forKey:@"name"]];
-    
-    NSMutableDictionary* details =  [[NSMutableDictionary alloc] init];
-    [details setObject:request forKey:@"request"];
-    [details setObject:[[[NSMutableString alloc] init] autorelease] forKey:@"buffer"];
-    [streams setObject:details forKey:name];
-    
-    [request startAsynchronous];
+    @synchronized(streams_) {
 
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        [request setTimeOutSeconds:0];
+        [request setDelegate:self];
+        [request setUserInfo:[NSDictionary dictionaryWithObject:name forKey:@"name"]];
+        
+        NSMutableDictionary* details =  [[NSMutableDictionary alloc] init];
+        [details setObject:request forKey:@"request"];
+        [details setObject:[[[NSMutableString alloc] init] autorelease] forKey:@"buffer"];
+        [streams_ setObject:details forKey:name];
+        
+        [request startAsynchronous];
+    }
 }
 
 
@@ -110,34 +103,35 @@
  * parsing it
  */
 - (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data {
-    
-    NSMutableString * buffer = [[streams objectForKey:[request.userInfo objectForKey:@"name"]] objectForKey:@"buffer"];
-    
-    if (data) {        
-        [buffer appendString:[[NSString alloc] initWithData:data encoding:[request responseEncoding]]]; 
+    @synchronized(streams_) {
         
-        while (buffer && [buffer rangeOfString:@"\r\n"].location != NSNotFound) {
+        NSMutableString * buffer = [[streams_ objectForKey:[request.userInfo objectForKey:@"name"]] objectForKey:@"buffer"];
+        
+        if (data) {        
+            [buffer appendString:[[NSString alloc] initWithData:data encoding:[request responseEncoding]]]; 
             
-            NSArray *chunks = [buffer componentsSeparatedByString:@"\r\n"];
-            
-            if([chunks count] > 1) {
-                for (int i=0; i < [chunks count] - 1; i ++) {
-                    id json = [[chunks objectAtIndex:i] objectFromJSONString];                    
-                    [[EventBus defaultEventBus] fireEvent:[PictureEvent eventWithURL:[json objectForKey:@"fll"] 
-                                                                                 pic:json 
-                                                                                from:[request.userInfo objectForKey:@"name"]]];                
+            while (buffer && [buffer rangeOfString:@"\r\n"].location != NSNotFound) {
+                
+                NSArray *chunks = [buffer componentsSeparatedByString:@"\r\n"];
+                
+                if([chunks count] > 1) {
+                    for (int i=0; i < [chunks count] - 1; i ++) {
+                        id json = [[chunks objectAtIndex:i] objectFromJSONString];                    
+                        [[EventBus defaultEventBus] fireEvent:[PictureEvent eventWithURL:[json objectForKey:@"fll"] 
+                                                                                     pic:json 
+                                                                                    from:[request.userInfo objectForKey:@"name"]]];                
+                    }
+                    [buffer setString:[chunks lastObject]];
                 }
-                [buffer setString:[chunks lastObject]];
             }
+            
         }
-        
-    }
-    
+    }    
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSLog(@"error");
+    [NSThread sleepForTimeInterval:1];
     [self startStream:[request.userInfo objectForKey:@"name"] url:[request url]];
 }
 

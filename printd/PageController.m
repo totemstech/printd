@@ -19,7 +19,9 @@
 {
     if ( self = [super init] )
     {
-        events_ = [[NSMutableDictionary alloc] initWithCapacity:10];        
+        events_ = [[NSMutableDictionary alloc] initWithCapacity:10];
+        done_ = [[NSMutableSet alloc] initWithCapacity:10];
+        
         [[EventBus defaultEventBus] addHandler:self 
                                      eventType:[PictureEvent type] 
                                       selector:@selector(onPicture:)];
@@ -33,6 +35,7 @@
 - (void) dealloc 
 {
     [events_ release];
+    [done_ release];
     
     [super dealloc];
 }
@@ -40,32 +43,51 @@
 
 - (void)onPicture:(PictureEvent *)evt
 {
-    NSLog(@"PICTURE: %@ %@", [evt url], [evt stream]);
-    /*
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];
+    @synchronized(events_) {   
+        if(![done_ containsObject:[evt url]]) {
+            NSLog(@"PICTURE: %@ %@", [evt url], [evt stream]);
 
-    [request setDelegate:self];
-    [request startAsynchronous];
-*/
-    [events_ setObject:evt forKey:[evt url]];    
+            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];            
+            [request setDelegate:self];
+            [request startAsynchronous];
+            
+            [events_ setObject:evt forKey:[evt url]];                
+            [done_ addObject:[evt url]];
+        }
+    }
 }
 
 
 
 - (void)requestFinished:(ASIHTTPRequest *)request
 {
-    PictureEvent *evt = [events_ objectForKey:[[request originalURL] absoluteString]];    
-    [events_ removeObjectForKey:[[request originalURL] absoluteString]];
-    
-    NSLog(@"RECEIVED: %@", [evt url]);
-    
-    ++count_;
-    
-    //NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
-    //NSView* vw = [self buildPage:pic event:nil];    
-    //[[[Factory sharedFactory] printController] printView:vw];
-    
-    //TODO: tweet
+    @synchronized(events_) {
+
+        PictureEvent *evt = [events_ objectForKey:[[request originalURL] absoluteString]];  
+        if(evt) {    
+            NSLog(@"RECEIVED: %@", [evt url]);
+            
+            ++count_;
+            
+            NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
+            NSView* vw = [self buildPage:pic event:evt];    
+            [[[Factory sharedFactory] printController] printView:vw];
+            
+            NSLog(@"PIC: %@", [evt pic]);
+            
+            // tweet
+            if([[evt pic] objectForKey:@"usr"] && [[[evt pic] objectForKey:@"usr"] count] > 0) {            
+                NSString *tweet = 
+                [NSString stringWithFormat:@"@%@ Wow! That's Cool: your photo is being #printd right now... follow the white LEDs. #lajeuneur #%d", 
+                 [[[evt pic] objectForKey:@"usr"] objectAtIndex:0],
+                 count_, nil];
+                
+                [[[Factory sharedFactory] twitterController] updateStatus:tweet];
+            }
+            
+            [events_ removeObjectForKey:[[request originalURL] absoluteString]];        
+        }
+    }
 }
 
 
@@ -123,29 +145,52 @@
     
     [final unlockFocus];
     
+    NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:40.0f];
+    NSColor *color = [NSColor colorWithSRGBRed:0.47f green:0.47f blue:0.47f alpha:0.8f];
+    
     NSImageView* view = [[NSImageView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, PRINT_VIEW_WIDTH, PRINT_VIEW_HEIGHT)];
     [view setImage:final]; 
     
-    NSTextField *handle = [[[NSTextField alloc] initWithFrame:NSMakeRect(100.0f, 100.0f, 1200.0f, 200.f)] autorelease];
-    [handle setFont:[NSFont fontWithName:@"Helvetica Neue" size:78.0f]];
-    [handle setEditable:NO];
-    [handle setTextColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
-    [handle setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-    [handle setStringValue:@"spolu"];
-    [handle setBordered:NO];
-    [handle setBezeled:NO];
+    if([[evt pic] objectForKey:@"usr"] && [[[evt pic] objectForKey:@"usr"] count] > 0) {
+        NSTextField *handle = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 270.0f, 1000.0f, 150.f)] autorelease];
+        [handle setFont:font];
+        [handle setTextColor:color];
+        [handle setEditable:NO];
+        [handle setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+        [handle setStringValue:[NSString stringWithFormat:@"@%@", [[[evt pic] objectForKey:@"usr"] objectAtIndex:0]]];
+        [handle setStringValue:@"spolu"];
+        [handle setBordered:NO];
+        [handle setBezeled:NO];
+
+        [view addSubview:handle];
+    }
     
-    NSTextField *time = [[[NSTextField alloc] initWithFrame:NSMakeRect(100.0f, 400.0f, 1200.0f, 200.f)] autorelease];
-    [time setFont:[NSFont fontWithName:@"Helvetica Neue" size:78.0f]];
+    NSString *dateStr = [[NSDate  date]
+                         descriptionWithCalendarFormat:@"%d.%m.%Y %H:%M:%S" timeZone:nil
+                         locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
+
+    NSTextField *time = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 180.0f, 1000.0f, 150.f)] autorelease];
+    [time setFont:font];
+    [time setTextColor:color];
     [time setEditable:NO];
-    [time setTextColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:1.0f]];
     [time setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-    [time setStringValue:@"NOW"];
+    [time setStringValue:[NSString stringWithFormat:@"%@ CEST", dateStr, nil]];
     [time setBordered:NO];
     [time setBezeled:NO];
     
-    [view addSubview:handle];
     [view addSubview:time];
+    
+    
+    NSTextField *loc = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 95.0f, 1000.0f, 150.0f)] autorelease];
+    [loc setFont:font];
+    [loc setTextColor:color];
+    [loc setEditable:NO];
+    [loc setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+    [loc setStringValue:@"48.869 N 2.345 E"];
+    [loc setBordered:NO];
+    [loc setBezeled:NO];
+    
+    [view addSubview:loc];
     
     return [view autorelease];
 }

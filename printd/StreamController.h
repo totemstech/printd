@@ -13,7 +13,7 @@
 
 @interface StreamController : NSObject
 {
-    NSMutableDictionary * streams;
+    NSMutableDictionary * streams_;
 }
 
 - (void) addStream:(NSDictionary*)query withName:(NSString*)name;

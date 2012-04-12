@@ -13,6 +13,7 @@
 @interface PageController : NSObject {
     NSMutableDictionary    *events_;
     NSInteger     count_;
+    NSMutableSet           *done_;
 }
 
 - (void)onPicture:(PictureEvent*)evt;
