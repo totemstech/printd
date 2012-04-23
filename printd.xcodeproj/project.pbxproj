@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F224C941545C52F008F8895 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F224C931545C52F008F8895 /* bg.png */; };
 		0F3E9B7515356E6100051A3C /* PrintController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7415356E6100051A3C /* PrintController.m */; };
 		0F3E9B8115356F3100051A3C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7C15356F3100051A3C /* Event.m */; };
 		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
 		0F3E9B8315356F3100051A3C /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8015356F3100051A3C /* Registration.m */; };
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
 		0F3E9BC21535ECD800051A3C /* test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BC11535ECD800051A3C /* test.jpeg */; };
-		0F60E5611537304D00ACA40E /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F60E5601537304D00ACA40E /* bg.png */; };
 		3D814B2D1536D9A4005CF3E3 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D814B2C1536D9A4005CF3E3 /* TwitterController.m */; };
 		3D814B301536D9CD005CF3E3 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */; };
 		3D814B321536D9D8005CF3E3 /* liboauth.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B311536D9D8005CF3E3 /* liboauth.dylib */; };
@@ -41,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F224C931545C52F008F8895 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		0F3E9B7315356E6100051A3C /* PrintController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintController.h; sourceTree = "<group>"; };
 		0F3E9B7415356E6100051A3C /* PrintController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintController.m; sourceTree = "<group>"; };
 		0F3E9B7B15356F3100051A3C /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		0F3E9B8415356FF200051A3C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		0F3E9BC11535ECD800051A3C /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpeg; sourceTree = "<group>"; };
-		0F60E5601537304D00ACA40E /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		3D814B2B1536D9A4005CF3E3 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
 		3D814B2C1536D9A4005CF3E3 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
@@ -174,7 +174,7 @@
 		0F3E9B8F1535872600051A3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0F60E5601537304D00ACA40E /* bg.png */,
+				0F224C931545C52F008F8895 /* bg.png */,
 				0F3E9BC11535ECD800051A3C /* test.jpeg */,
 			);
 			name = Resources;
@@ -326,7 +326,7 @@
 				D9CCA344152F298100A56228 /* Credits.rtf in Resources */,
 				D9CCA34A152F298100A56228 /* MainMenu.xib in Resources */,
 				0F3E9BC21535ECD800051A3C /* test.jpeg in Resources */,
-				0F60E5611537304D00ACA40E /* bg.png in Resources */,
+				0F224C941545C52F008F8895 /* bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,9 +438,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "printd/printd-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "printd/printd-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -454,9 +452,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "printd/printd-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "printd/printd-Info.plist";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

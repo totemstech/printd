@@ -78,7 +78,7 @@
             // tweet
             if([[evt pic] objectForKey:@"usr"] && [[[evt pic] objectForKey:@"usr"] count] > 0) {            
                 NSString *tweet = 
-                [NSString stringWithFormat:@"@%@ Wow! That's Cool: your photo is being #printd right now... follow the white LEDs. #lajeuneur #%d", 
+                [NSString stringWithFormat:@"@%@ Wow! That's Cool: your photo is being #printd right now... follow the white LEDs. #esperluette #%d", 
                  [[[evt pic] objectForKey:@"usr"] objectAtIndex:0],
                  count_, nil];
                 
@@ -152,7 +152,7 @@
     [view setImage:final]; 
     
     if([[evt pic] objectForKey:@"usr"] && [[[evt pic] objectForKey:@"usr"] count] > 0) {
-        NSTextField *handle = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 270.0f, 1000.0f, 150.f)] autorelease];
+        NSTextField *handle = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 315.0f, 1000.0f, 150.f)] autorelease];
         [handle setFont:font];
         [handle setTextColor:color];
         [handle setEditable:NO];
@@ -169,7 +169,7 @@
                          descriptionWithCalendarFormat:@"%d.%m.%Y %H:%M:%S" timeZone:nil
                          locale:[[NSUserDefaults standardUserDefaults] dictionaryRepresentation]];
 
-    NSTextField *time = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 180.0f, 1000.0f, 150.f)] autorelease];
+    NSTextField *time = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 220.0f, 1000.0f, 150.f)] autorelease];
     [time setFont:font];
     [time setTextColor:color];
     [time setEditable:NO];
@@ -181,12 +181,12 @@
     [view addSubview:time];
     
     
-    NSTextField *loc = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 95.0f, 1000.0f, 150.0f)] autorelease];
+    NSTextField *loc = [[[NSTextField alloc] initWithFrame:NSMakeRect(200.0f, 185.0f, 600.0f, 100.0f)] autorelease];
     [loc setFont:font];
     [loc setTextColor:color];
     [loc setEditable:NO];
     //[loc setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
-    [loc setStringValue:@"48.869 N 2.345 E"];
+    [loc setStringValue:@"48.846 N 2.374 E"];
     [loc setBordered:NO];
     [loc setBezeled:NO];
     
