@@ -146,7 +146,7 @@
     [final unlockFocus];
     
     NSFont *font = [NSFont fontWithName:@"Helvetica Neue" size:40.0f];
-    NSColor *color = [NSColor colorWithSRGBRed:0.47f green:0.47f blue:0.47f alpha:0.8f];
+    NSColor *color = [NSColor colorWithDeviceRed:0.47f green:0.47f blue:0.47f alpha:0.8f];
     
     NSImageView* view = [[NSImageView alloc] initWithFrame:NSMakeRect(0.0f, 0.0f, PRINT_VIEW_WIDTH, PRINT_VIEW_HEIGHT)];
     [view setImage:final]; 
@@ -156,9 +156,9 @@
         [handle setFont:font];
         [handle setTextColor:color];
         [handle setEditable:NO];
-        [handle setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+        //[handle setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
         [handle setStringValue:[NSString stringWithFormat:@"@%@", [[[evt pic] objectForKey:@"usr"] objectAtIndex:0]]];
-        [handle setStringValue:@"spolu"];
+        //[handle setStringValue:@"spolu"];
         [handle setBordered:NO];
         [handle setBezeled:NO];
 
@@ -173,7 +173,7 @@
     [time setFont:font];
     [time setTextColor:color];
     [time setEditable:NO];
-    [time setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+    //[time setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
     [time setStringValue:[NSString stringWithFormat:@"%@ CEST", dateStr, nil]];
     [time setBordered:NO];
     [time setBezeled:NO];
@@ -185,7 +185,7 @@
     [loc setFont:font];
     [loc setTextColor:color];
     [loc setEditable:NO];
-    [loc setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
+    //[loc setBackgroundColor:[NSColor colorWithSRGBRed:0.0f green:0.0f blue:0.0f alpha:0.0f]];
     [loc setStringValue:@"48.869 N 2.345 E"];
     [loc setBordered:NO];
     [loc setBezeled:NO];

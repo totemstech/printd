@@ -22,7 +22,8 @@
 
 - (id)init
 {
-    if ( self = [super init] )
+    self = [super init];
+    if (self)
     {
         streams_ = [[NSMutableDictionary alloc] init];
     }
@@ -131,11 +132,17 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
+    NSLog(@"REQUEST FAILED");
     [NSThread sleepForTimeInterval:1];
     [self startStream:[request.userInfo objectForKey:@"name"] url:[request url]];
 }
 
-
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    NSLog(@"REQUEST FINISHED");
+    [NSThread sleepForTimeInterval:1];
+    [self startStream:[request.userInfo objectForKey:@"name"] url:[request url]];    
+}
 @end
 
 

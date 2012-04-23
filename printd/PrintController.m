@@ -47,7 +47,7 @@
                             printOperationWithView:pview
                             printInfo:[self printInfo]];
 
-    [op setShowsPrintPanel:YES];
+    [op setShowsPrintPanel:NO];
     
     [op runOperationModalForWindow:[(AppDelegate*)[[NSApplication sharedApplication] delegate] window]
                           delegate:self 
