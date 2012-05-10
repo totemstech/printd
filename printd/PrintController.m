@@ -35,13 +35,13 @@
                      success:(BOOL)success
                  contextInfo:(void *)info {
     if(success)
-        NSLog(@"PRINT SUCCESSFUL");
+        [[Factory sharedFactory] log:@"PRINT: successful"];
     else
-        NSLog(@"PRINT FAILED");    
+        [[Factory sharedFactory] log:@"ERROR: print failed"];
 }
 
 
--(void)printView:(NSView *)pview
+-(void)printView:(NSView *)pview forEvt:(PictureEvent *)evt
 {
     NSPrintOperation *op = [NSPrintOperation
                             printOperationWithView:pview
@@ -53,6 +53,9 @@
                           delegate:self 
                     didRunSelector:@selector(printOperationDidRun:success:contextInfo:)
                        contextInfo:NULL];
+    
+    [[Factory sharedFactory] log:[NSString stringWithFormat:@"PRINTING [%@]", 
+                                  [[evt pic] objectForKey:@"sha"] ,nil]];
 }
 
 
@@ -67,7 +70,7 @@
     [printInfo setVerticalPagination:NSFitPagination];
     [printInfo setHorizontallyCentered:YES];
     [printInfo setVerticallyCentered:YES];
-    [printInfo setPaperName:@"Postcard(4x6in)"];
+    [printInfo setPaperName:PRINT_PAPER_NAME];
         
     return printInfo;
 }

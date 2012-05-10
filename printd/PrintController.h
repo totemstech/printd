@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#import "PictureEvent.h"
 
 @interface PrintController : NSObject {
 }
 
-- (void)printView:(NSView*)pview;
+- (void)printView:(NSView*)pview forEvt:(PictureEvent*)evt;
 
 
 

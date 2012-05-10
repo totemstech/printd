@@ -13,7 +13,8 @@
 		0F3E9B8215356F3100051A3C /* EventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B7E15356F3100051A3C /* EventBus.m */; };
 		0F3E9B8315356F3100051A3C /* Registration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8015356F3100051A3C /* Registration.m */; };
 		0F3E9B8615356FF200051A3C /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3E9B8515356FF200051A3C /* Factory.m */; };
-		0F3E9BC21535ECD800051A3C /* test.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0F3E9BC11535ECD800051A3C /* test.jpeg */; };
+		0FF34895155BB0180016D6A5 /* CapsuleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF34894155BB0180016D6A5 /* CapsuleController.m */; };
+		0FF34898155BB0700016D6A5 /* PictureEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF34897155BB0700016D6A5 /* PictureEvent.m */; };
 		3D814B2D1536D9A4005CF3E3 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D814B2C1536D9A4005CF3E3 /* TwitterController.m */; };
 		3D814B301536D9CD005CF3E3 /* libcurl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */; };
 		3D814B321536D9D8005CF3E3 /* liboauth.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D814B311536D9D8005CF3E3 /* liboauth.dylib */; };
@@ -22,7 +23,6 @@
 		D9A5BAA5152F331A00400882 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */; };
 		D9A5BAA8152F333500400882 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA7152F333500400882 /* libz.dylib */; };
 		D9A5BAAA152F337200400882 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9A5BAA9152F337200400882 /* CoreServices.framework */; };
-		D9B743D21535765700465819 /* StreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9B743D11535765700465819 /* StreamController.m */; };
 		D9CCA334152F298100A56228 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CCA333152F298100A56228 /* Cocoa.framework */; };
 		D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CCA33C152F298100A56228 /* InfoPlist.strings */; };
 		D9CCA340152F298100A56228 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CCA33F152F298100A56228 /* main.m */; };
@@ -52,7 +52,10 @@
 		0F3E9B8015356F3100051A3C /* Registration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Registration.m; sourceTree = "<group>"; };
 		0F3E9B8415356FF200051A3C /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		0F3E9B8515356FF200051A3C /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
-		0F3E9BC11535ECD800051A3C /* test.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpeg; sourceTree = "<group>"; };
+		0FF34893155BB0180016D6A5 /* CapsuleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapsuleController.h; sourceTree = "<group>"; };
+		0FF34894155BB0180016D6A5 /* CapsuleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CapsuleController.m; sourceTree = "<group>"; };
+		0FF34896155BB0700016D6A5 /* PictureEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureEvent.h; sourceTree = "<group>"; };
+		0FF34897155BB0700016D6A5 /* PictureEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureEvent.m; sourceTree = "<group>"; };
 		3D814B2B1536D9A4005CF3E3 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
 		3D814B2C1536D9A4005CF3E3 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
 		3D814B2F1536D9CD005CF3E3 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
@@ -64,8 +67,6 @@
 		D9A5BAA4152F331A00400882 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D9A5BAA7152F333500400882 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		D9A5BAA9152F337200400882 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		D9B743D01535765700465819 /* StreamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamController.h; sourceTree = "<group>"; };
-		D9B743D11535765700465819 /* StreamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamController.m; sourceTree = "<group>"; };
 		D9CCA32F152F298100A56228 /* printd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CCA333152F298100A56228 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D9CCA336152F298100A56228 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -175,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				0F224C931545C52F008F8895 /* bg.png */,
-				0F3E9BC11535ECD800051A3C /* test.jpeg */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -189,13 +189,15 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
-		D9B743D61535777700465819 /* Stream */ = {
+		D9B743D61535777700465819 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D9B743D01535765700465819 /* StreamController.h */,
-				D9B743D11535765700465819 /* StreamController.m */,
+				0FF34893155BB0180016D6A5 /* CapsuleController.h */,
+				0FF34894155BB0180016D6A5 /* CapsuleController.m */,
+				0FF34896155BB0700016D6A5 /* PictureEvent.h */,
+				0FF34897155BB0700016D6A5 /* PictureEvent.m */,
 			);
-			name = Stream;
+			name = Data;
 			sourceTree = "<group>";
 		};
 		D9CCA324152F298000A56228 = {
@@ -244,10 +246,10 @@
 		D9CCA339152F298100A56228 /* printd */ = {
 			isa = PBXGroup;
 			children = (
-				D9B743D61535777700465819 /* Stream */,
-				D9B743A915356F9D00465819 /* JSON */,
 				0F3E9B7A15356F1200051A3C /* Event */,
 				0F151C9C152F37F2005EF71B /* ASHTTPRequest */,
+				D9B743A915356F9D00465819 /* JSON */,
+				D9B743D61535777700465819 /* Data */,
 				0F3E9B7115356DFC00051A3C /* Print */,
 				0F3E9B8415356FF200051A3C /* Factory.h */,
 				0F3E9B8515356FF200051A3C /* Factory.m */,
@@ -325,7 +327,6 @@
 				D9CCA33E152F298100A56228 /* InfoPlist.strings in Resources */,
 				D9CCA344152F298100A56228 /* Credits.rtf in Resources */,
 				D9CCA34A152F298100A56228 /* MainMenu.xib in Resources */,
-				0F3E9BC21535ECD800051A3C /* test.jpeg in Resources */,
 				0F224C941545C52F008F8895 /* bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +347,6 @@
 				D9CCA3A6152F2F6500A56228 /* ASIHTTPRequest.m in Sources */,
 				D9CCA3AC152F2F8C00A56228 /* ASIInputStream.m in Sources */,
 				D9CCA3AD152F2F8C00A56228 /* ASINetworkQueue.m in Sources */,
-				D9B743D21535765700465819 /* StreamController.m in Sources */,
 				0F3E9B7515356E6100051A3C /* PrintController.m in Sources */,
 				0F3E9B8115356F3100051A3C /* Event.m in Sources */,
 				0F3E9B8215356F3100051A3C /* EventBus.m in Sources */,
@@ -355,6 +355,8 @@
 				D9182E8115357DED0023FAD0 /* PageController.m in Sources */,
 				D9182E8C153586450023FAD0 /* JSONKit.m in Sources */,
 				3D814B2D1536D9A4005CF3E3 /* TwitterController.m in Sources */,
+				0FF34895155BB0180016D6A5 /* CapsuleController.m in Sources */,
+				0FF34898155BB0700016D6A5 /* PictureEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

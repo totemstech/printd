@@ -9,11 +9,6 @@
 #import "TwitterController.h"
 #import "Factory.h"
 
-static NSString* access_token = @"309574150-tKpO11zzjs1xqVfF4UMhG9y4roxA43dxzoGJZpgd";
-static NSString* access_token_secret = @"a7JcguVZzTPz6dy8mFkqqeDhNCIl9irkIDwNd4Y55Y";
-static NSString* consumer_key = @"xGoSF4ArgirVCTo5XuhdQ";
-static NSString* consumer_secret = @"VydwtQLEaysoRYyq0vBb4CasF4efDv5JCMVQctLEUw4";
-
 @implementation TwitterController
 
 - (id) init
@@ -40,10 +35,10 @@ static NSString* consumer_secret = @"VydwtQLEaysoRYyq0vBb4CasF4efDv5JCMVQctLEUw4
     char *post_arg = NULL;
     
     char *req_url = oauth_sign_url2([post_url UTF8String], &post_arg, OA_HMAC, NULL, 
-                                    [consumer_key UTF8String], 
-                                    [consumer_secret UTF8String], 
-                                    [access_token UTF8String], 
-                                    [access_token_secret UTF8String]);
+                                    [TW_CONSUMER_KEY UTF8String], 
+                                    [TW_CONSUMER_SECRET UTF8String], 
+                                    [TW_ACCESS_TOKEN UTF8String], 
+                                    [TW_ACCESS_TOKEN_SECRET UTF8String]);
     
     //printf("req_url: %s\n\npostarg: %s\n", req_url, post_arg);    
 

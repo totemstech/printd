@@ -7,7 +7,7 @@
 //
 
 #import "PageController.h"
-#import "StreamController.h"
+#import "PictureEvent.h"
 #import "ASIHTTPRequest.h"
 #import "EventBus.h"
 #import "Factory.h"
@@ -45,7 +45,8 @@
 {
     @synchronized(events_) {   
         if(![done_ containsObject:[evt url]]) {
-            NSLog(@"PICTURE: %@ %@", [evt url], [evt stream]);
+            [[Factory sharedFactory] log:[NSString stringWithFormat:@"DOWNLOADING: %@ [%@]", 
+                                          [evt url], [[evt pic] objectForKey:@"sha"] ,nil]];
 
             ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:evt.url]];            
             [request setDelegate:self];
@@ -65,22 +66,25 @@
 
         PictureEvent *evt = [events_ objectForKey:[[request originalURL] absoluteString]];  
         if(evt) {    
-            NSLog(@"RECEIVED: %@", [evt url]);
+            [[Factory sharedFactory] log:[NSString stringWithFormat:@"DOWNLOADED: %@ [%@]", 
+                                          [evt url], [[evt pic] objectForKey:@"sha"] ,nil]];
             
             ++count_;
             
             NSImage* pic = [[[NSImage alloc] initWithData:[request responseData]] autorelease];
             NSView* vw = [self buildPage:pic event:evt];    
-            [[[Factory sharedFactory] printController] printView:vw];
-            
-            NSLog(@"PIC: %@", [evt pic]);
+            [[[Factory sharedFactory] printController] printView:vw forEvt:evt];
             
             // tweet
-            if([[evt pic] objectForKey:@"usr"] && [[[evt pic] objectForKey:@"usr"] count] > 0) {            
+            if([[evt pic] objectForKey:@"hdl"]) {            
                 NSString *tweet = 
-                [NSString stringWithFormat:@"@%@ Wow! That's Cool: your photo is being #printd right now... follow the white LEDs. #esperluette #%d", 
-                 [[[evt pic] objectForKey:@"usr"] objectAtIndex:0],
+                [NSString stringWithFormat:TW_STATUS, 
+                 [[evt pic] objectForKey:@"hdl"],
                  count_, nil];
+
+                [[Factory sharedFactory] log:[NSString stringWithFormat:@"TWEET: %@ [%@]", 
+                                              [[evt pic] objectForKey:@"hdl"],
+                                              [[evt pic] objectForKey:@"sha"] ,nil]];
                 
                 [[[Factory sharedFactory] twitterController] updateStatus:tweet];
             }

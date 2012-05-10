@@ -20,7 +20,7 @@ static Factory *sharedFactory_ = nil;
 
 @synthesize printController = printController_;
 @synthesize printdAppDelegate = printdAppDelegate_;
-@synthesize streamController  = streamController_;
+@synthesize capsuleController  = capsuleController_;
 @synthesize pageController    = pageController_;
 @synthesize twitterController = twitterController_;
 
@@ -61,7 +61,7 @@ static Factory *sharedFactory_ = nil;
 {
     if((self = [super init])) {
         printdAppDelegate_ = (AppDelegate*)[[NSApplication sharedApplication] delegate];
-        streamController_  = [[StreamController alloc] init];
+        capsuleController_  = [[CapsuleController alloc] init];
         pageController_    = [[PageController alloc] init];
         printController_ = [[PrintController alloc] init];
         twitterController_ = [[TwitterController alloc] init];
@@ -73,12 +73,21 @@ static Factory *sharedFactory_ = nil;
 - (void)dealloc
 {    
     [printController_ release];
-    [streamController_ release];
+    [capsuleController_ release];
     [pageController_ release];
     [twitterController_ release];
     [super dealloc];
 }
 
+- (void)log:(NSString *)str
+{
+    [(AppDelegate*)[[NSApplication sharedApplication] delegate] log: str];
+}
+
+- (void)setCapsuleId:(NSString*)capsuleId
+{
+    [(AppDelegate*)[[NSApplication sharedApplication] delegate] setCapsuleId:capsuleId];    
+}
 
 @end
 

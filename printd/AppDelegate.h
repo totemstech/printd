@@ -10,8 +10,14 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
-   
 }
+
+- (void)log:(NSString*)str;
+- (void)setCapsuleId:(NSString*)capsuleId;
+
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSTextView *log;
+@property (assign) IBOutlet NSTextField *capsule;
+@property (assign) IBOutlet NSTextField *twitter;
 
 @end

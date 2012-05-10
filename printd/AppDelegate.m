@@ -26,6 +26,9 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize log = _log;
+@synthesize capsule = _capsule;
+@synthesize twitter = _twitter;
 
 
 - (void) dealloc
@@ -35,31 +38,33 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [_twitter setStringValue:TW_ACCOUNT];
+    [[Factory sharedFactory] log:@"INITIALIZING..."];
+    [[Factory sharedFactory] setCapsuleId:@""];
     
     /*******************************
      * START!!!                    *
      *******************************/   
-    // hashtag
-    NSMutableDictionary *dic1 = [[[NSMutableDictionary alloc] init] autorelease];
-
-    [dic1 setObject:[NSArray arrayWithObjects:@"esperluette", nil] forKey:@"track"];
-    
-    [[[Factory sharedFactory] streamController]addStream:dic1
-                                                withName:@"hashtag"];
-    
-    // loc
-    NSMutableDictionary *dic2 = [[[NSMutableDictionary alloc] init] autorelease];
-    
-    [dic2 setObject:[NSArray arrayWithObjects:
-                    [NSNumber numberWithFloat:48.846f],
-                    [NSNumber numberWithFloat:2.374f],
-                    [NSNumber numberWithFloat:0.003f],
-                    [NSNumber numberWithFloat:0.003f], 
-                    nil]
-            forKey:@"loc"];
-    
-    [[[Factory sharedFactory] streamController]addStream:dic2
-                                                withName:@"loc"];
-
+    [[[Factory sharedFactory] capsuleController] trackCapsuleWithId:TLPD_CAPSULE_ID fromStart:NO];
 }
+
+- (void)log:(NSString*)str
+{
+    [_log setFont:[NSFont boldSystemFontOfSize:11.0f]];
+    NSString *txt = [NSString stringWithFormat:@"%@\n%@", str, [_log string]];
+    [_log setString:txt];        
+}
+
+- (void)setCapsuleId:(NSString*)capsuleId
+{
+    [_capsule setStringValue:capsuleId];
+}
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    if(!flag)
+        [_window makeKeyAndOrderFront:self];
+    return TRUE;
+}
+
 @end

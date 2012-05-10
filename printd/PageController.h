@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "StreamController.h"
+#import "PictureEvent.h"
 
 
 @interface PageController : NSObject {
